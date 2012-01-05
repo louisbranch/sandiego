@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
 gem 'coffeebeans'
+gem 'koala'
 
 group :development, :test do
   gem 'sqlite3'
