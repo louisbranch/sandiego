@@ -11,15 +11,52 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105150519) do
+ActiveRecord::Schema.define(:version => 20120105200257) do
 
-  create_table "users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
+  create_table "missions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "prize"
+    t.date     "end_date"
+    t.integer  "rank_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "missions", ["rank_id"], :name => "index_missions_on_rank_id"
+  add_index "missions", ["user_id"], :name => "index_missions_on_user_id"
+
+  create_table "ranks", :force => true do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "suspects", :force => true do |t|
+    t.integer  "mission_id"
+    t.text     "raw_info"
     t.string   "facebook_id"
+    t.string   "name"
+    t.string   "gender"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "suspects", ["facebook_id"], :name => "index_suspects_on_facebook_id"
+  add_index "suspects", ["mission_id"], :name => "index_suspects_on_mission_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "facebook_id"
+    t.string   "oauth_token"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.integer  "rank_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "users", ["facebook_id"], :name => "index_users_on_facebook_id"
+  add_index "users", ["rank_id"], :name => "index_users_on_rank_id"
 
 end

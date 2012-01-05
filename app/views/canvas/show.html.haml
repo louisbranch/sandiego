@@ -1,8 +1,9 @@
-=@user.first_name
-=@user.oauth_token
+=@user.name
 %ul
-  - @user.friends.each do |friend|
+  - @user.missions.each_with_index do |mission, i|
     %li
-      = friend['id']
-      = friend['name']
+      = "#{(i + 1).ordinalize} Missão"
+      = "Suspeito #{mission.suspect.name}"
+      = "Sexo #{mission.suspect.gender}"
+      = image_tag(mission.suspect.photo_url)
 
