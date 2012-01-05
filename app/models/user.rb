@@ -1,6 +1,16 @@
 class User < ActiveRecord::Base
   attr_accessor :oauth_token
 
+  def friends
+    graph = Koala::Facebook::API.new(oauth_token)
+    graph.get_connections('me','friends')
+  end
+
+  def friend(id)
+    graph = Koala::Facebook::API.new(oauth_token)
+    graph.get_object(id)
+  end
+
   def self.authenticate(signed_request)
     oauth = Koala::Facebook::OAuth.new
     signed_request = oauth.parse_signed_request(signed_request)

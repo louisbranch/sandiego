@@ -9,7 +9,6 @@ class CanvasController < ApplicationController
 	def create
 	  @user = User.authenticate(params[:signed_request])
     session[:user_id] = @user.id
-    session[:oauth_token] = @user.oauth_token
     render :show
 	end
 

@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
 
 	rescue_from Koala::Facebook::APIError do
     @oauth = Koala::Facebook::OAuth.new
-    redirect_to @oauth.authorize_url
+    render 'canvas/new'
+  end
+
+  def current_user
+    User.find(session[:user_id])
   end
 
 end

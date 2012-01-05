@@ -1,2 +1,8 @@
 =@user.first_name
+=@user.oauth_token
+%ul
+  - @user.friends.each do |friend|
+    %li
+      = friend['id']
+      = friend['name']
 
