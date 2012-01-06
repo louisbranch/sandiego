@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    @user = Factory(:user)
+  end
+
+  it 'returns full name' do
+    @user.name.should == "Luiz Branco"
+  end
 end
+

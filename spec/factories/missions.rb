@@ -1,9 +1,9 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :mission do
-    user nil
-    prize 1
+    association :user
+    association :rank
+    prize 10
     end_date "2012-01-05"
   end
 end
+
