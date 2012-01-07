@@ -1,9 +1,3 @@
-=@user.name
-%ul
-  - @user.missions.each_with_index do |mission, i|
-    %li
-      = "#{(i + 1).ordinalize} Missão"
-      = "Suspeito #{mission.suspect.name}"
-      = "Sexo #{mission.suspect.gender}"
-      = image_tag(mission.suspect.photo_url)
+= @user.first_name
+= link_to 'Ver Missões', missions_path
 

@@ -14,15 +14,18 @@
 ActiveRecord::Schema.define(:version => 20120105200257) do
 
   create_table "missions", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "prize"
+    t.string   "name"
+    t.text     "description"
     t.date     "end_date"
+    t.integer  "user_id"
     t.integer  "rank_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "status_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "missions", ["rank_id"], :name => "index_missions_on_rank_id"
+  add_index "missions", ["status_id"], :name => "index_missions_on_status_id"
   add_index "missions", ["user_id"], :name => "index_missions_on_user_id"
 
   create_table "ranks", :force => true do |t|

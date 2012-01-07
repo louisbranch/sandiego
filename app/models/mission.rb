@@ -1,6 +1,8 @@
 class Mission < ActiveRecord::Base
-  before_create :calculate_prize
-  after_create :create_mission_suspect
+  include MissionFormater
+
+  before_create :generate_mission_info
+  #after_create :create_mission_suspect
 
   belongs_to :user
   belongs_to :rank
@@ -13,10 +15,6 @@ class Mission < ActiveRecord::Base
   end
 
   private
-
-  def calculate_prize
-    self.prize = rank.value + rand(5)
-  end
 
   def create_mission_suspect
     self.create_suspect
