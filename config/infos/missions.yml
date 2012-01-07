@@ -8,6 +8,6 @@
 - name: Wally está desaparecido
   description: Testemunhas afirmam que um suspeito rondava a casa de Wally em %%city%%, %%country%% poucos dias antes do desparecimento. Após multiplas buscas feitas nos livros da série, o seu paradeiro ainda é desconhecido. A polícia se pergunta onde estará Wally.
 
-- name: Senhor Cabeça de Batata é sequestrado
-  description: A vítima foi sequestrada na noite de %%yesterday%% quanto voltava para casa em %%city%%, %%country%%. Autoridades afirmam que o sequestrador pediu resgate de R$ 1 milhão e enviou como prova a orelha do Senhor Cabeça de Batata.
+- name: Senhor Cabeça de Batata é encontrado desmembrado
+  description: A vítima foi encontrada morta na noite de %%yesterday%% em sua casa em %%city%%, %%country%%. Os legistas demoraram cerca de 3 horas para coletar todas as evidências. A polícia afirma que a investigação será feita por partes.
 

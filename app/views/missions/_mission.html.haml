@@ -1,4 +1,5 @@
 %li{:id => ['mission', mission.id], :class => 'missions'}
   %h1= mission.name
-  = mission.description
+  %div= mission.description
+  = mission.rank.name
 

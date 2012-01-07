@@ -2,7 +2,12 @@ class Mission < ActiveRecord::Base
   include MissionFormater
 
   before_create :generate_mission_info
-  #after_create :create_mission_suspect
+  after_create :create_mission_suspect
+
+  validates :user, :presence => true
+  validates :rank, :presence => true
+  validates :name, :presence => true
+  validates :description, :presence => true
 
   belongs_to :user
   belongs_to :rank

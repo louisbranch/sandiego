@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105200257) do
+ActiveRecord::Schema.define(:version => 20120107191810) do
+
+  create_table "clues", :force => true do |t|
+    t.string   "category"
+    t.text     "description"
+    t.integer  "suspect_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "clues", ["suspect_id"], :name => "index_clues_on_suspect_id"
 
   create_table "missions", :force => true do |t|
     t.string   "name"
@@ -40,7 +50,6 @@ ActiveRecord::Schema.define(:version => 20120105200257) do
     t.text     "raw_info"
     t.string   "facebook_id"
     t.string   "name"
-    t.string   "gender"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

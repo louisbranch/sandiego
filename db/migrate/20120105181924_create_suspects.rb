@@ -5,8 +5,6 @@ class CreateSuspects < ActiveRecord::Migration
       t.text :raw_info
       t.string :facebook_id
       t.string :name
-      t.string :gender
-
       t.timestamps
     end
     add_index :suspects, :mission_id
