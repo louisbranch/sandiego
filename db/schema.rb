@@ -11,17 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107191810) do
+ActiveRecord::Schema.define(:version => 20120108163125) do
 
   create_table "clues", :force => true do |t|
-    t.string   "category"
     t.text     "description"
-    t.integer  "suspect_id"
+    t.integer  "location_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "clues", ["suspect_id"], :name => "index_clues_on_suspect_id"
+  add_index "clues", ["location_id"], :name => "index_clues_on_location_id"
+
+  create_table "locations", :force => true do |t|
+    t.string   "city"
+    t.string   "country"
+    t.string   "coordinates"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "missions", :force => true do |t|
     t.string   "name"
@@ -56,6 +63,16 @@ ActiveRecord::Schema.define(:version => 20120107191810) do
 
   add_index "suspects", ["facebook_id"], :name => "index_suspects_on_facebook_id"
   add_index "suspects", ["mission_id"], :name => "index_suspects_on_mission_id"
+
+  create_table "traits", :force => true do |t|
+    t.string   "category"
+    t.text     "description"
+    t.integer  "suspect_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "traits", ["suspect_id"], :name => "index_traits_on_suspect_id"
 
   create_table "users", :force => true do |t|
     t.string   "facebook_id"

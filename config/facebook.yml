@@ -2,7 +2,7 @@ development: &defaults
   app_id: 207930915962958
   secret_key: f633b7752a645bfb6f20709d6e56c512
   canvas_url: https://apps.facebook.com/sandiego_test/
-  scope: user_about_me, email, publish_stream, friends_about_me, friends_activities, friends_birthday, friends_checkins, friends_education_history,friends_events, friends_groups, friends_hometown, friends_interests, friends_likes, friends_location, friends_relationships, friends_relationship_details, friends_religion_politics, friends_work_history, offline_access
+  scope: user_about_me, email, publish_stream, friends_about_me, friends_activities, friends_birthday, friends_checkins, friends_education_history, friends_events, friends_groups, friends_hometown, friends_interests, friends_likes, friends_location, friends_relationships, friends_relationship_details, friends_religion_politics, friends_work_history, offline_access
 
 test:
   <<: *defaults

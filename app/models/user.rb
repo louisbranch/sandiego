@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   after_create :create_first_missions
-  has_many :missions
+  has_many :missions, :dependent => :destroy
   belongs_to :rank
 
   def name
@@ -19,6 +19,20 @@ class User < ActiveRecord::Base
 
   def random_friend
     friend(friends.sample['id'])
+  end
+
+  def valid_random_friend(f = nil)
+    f ||= friends
+    unless f.empty?
+      random_friend_id = f.slice!(rand(f.length - 1))['id']
+      if friend(random_friend_id).size >= 13
+        friend(random_friend_id)
+      else
+        valid_random_friend(f)
+      end
+    else
+      raise 'A valid friend coun\'t be found.'
+    end
   end
 
   def self.authenticate(signed_request)

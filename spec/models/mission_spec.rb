@@ -11,9 +11,5 @@ describe Mission do
     pending
   end
 
-  it 'returns its prize' do
-    #@mission.calculate_prize.should == 10
-  end
-
 end
 

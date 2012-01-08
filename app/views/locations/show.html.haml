@@ -1,0 +1,5 @@
+%h2= "#{@location.city} / #{@location.country}"
+%ul
+  = render @clues
+= link_to 'New Clue', new_location_clue_path(@location)
+

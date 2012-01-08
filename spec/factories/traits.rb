@@ -1,8 +1,8 @@
 FactoryGirl.define do
-  factory :clue do
+  factory :trait do
     category "MyString"
     description "MyText"
-    location nil
+    association :suspect
   end
 end
 
