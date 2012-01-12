@@ -5,7 +5,6 @@ class CreateTracks < ActiveRecord::Migration
       t.references :location
       t.integer :level
       t.boolean :correct
-      t.boolean :initial
       t.boolean :final
 
       t.timestamps

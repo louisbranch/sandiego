@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(:version => 20120112181601) do
     t.integer  "location_id"
     t.integer  "level"
     t.boolean  "correct"
-    t.boolean  "initial"
     t.boolean  "final"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

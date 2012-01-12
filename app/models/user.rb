@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  after_create :create_first_missions
   has_many :missions, :dependent => :destroy
   belongs_to :rank
 
@@ -46,6 +45,10 @@ class User < ActiveRecord::Base
     user
   end
 
+  def create_first_mission
+    self.missions.create_first_mission
+  end
+
   private
 
   def self.create_facebook_user(oauth_token)
@@ -60,9 +63,4 @@ class User < ActiveRecord::Base
     )
   end
 
-  def create_first_missions
-    self.missions.create_first_missions(2)
-  end
-
 end
-

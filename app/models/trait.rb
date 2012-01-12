@@ -111,7 +111,7 @@ class Trait < ActiveRecord::Base
           status = 'divorciado'
       end
       self.category = 'relationship_status'
-      self.description = "Ele falou que estava #{status}"
+      self.description = "Ele disse estar #{status}"
       self.save
     end
   end

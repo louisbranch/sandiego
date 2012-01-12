@@ -4,7 +4,9 @@ class Mission < ActiveRecord::Base
 
   before_create :generate_mission_info
   after_create :generate_mission_tracks
-  after_create :create_mission_suspect
+
+  validates :user, :presence => true
+  validates :rank, :presence => true
 
   belongs_to :user
   belongs_to :rank
@@ -16,6 +18,14 @@ class Mission < ActiveRecord::Base
     num.times do
       create( :rank => Rank.first )
     end
+  end
+
+  def first_location
+    tracks.where(:level => 0).first.location
+  end
+
+  def final_location
+    tracks.where(:final => true).first.location
   end
 
   private
