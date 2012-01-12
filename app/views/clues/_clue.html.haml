@@ -1,0 +1,5 @@
+%li
+  = clue.description
+  = link_to 'Edit', edit_location_clue_path(location, clue)
+  = link_to 'Delete', location_clue_path(location, clue), :method => :delete, :confirm => 'Are you sure?'
+

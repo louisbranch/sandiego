@@ -1,5 +1,5 @@
 %li
-  = location.city
+  = link_to location.city, location_path(location)
   = location.country
   = link_to 'Edit', edit_location_path(location)
   = link_to 'Delete', location_path(location), :method => :delete, :confirm => 'Are you sure?'

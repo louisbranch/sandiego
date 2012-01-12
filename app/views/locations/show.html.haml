@@ -1,5 +1,5 @@
 %h2= "#{@location.city} / #{@location.country}"
 %ul
-  = render @clues
+  = render @clues, :location => @location
 = link_to 'New Clue', new_location_clue_path(@location)
 
