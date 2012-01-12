@@ -6,4 +6,8 @@
     - mission.suspect.traits.each do |trait|
       %li=trait.description
   ="O criminoso é #{mission.suspect.name}"
-
+  %ul
+    -mission.locations.each do |location|
+      %li
+        =location.city
+        =location.country

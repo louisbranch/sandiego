@@ -1,7 +1,7 @@
 module MissionFormater
   MISSIONS = YAML::load(File.read(Rails.root.join('config/infos/missions.yml')))
   NAMES = YAML::load(File.read(Rails.root.join('config/infos/names.yml')))
-  LOCATIONS = YAML::load(File.read(Rails.root.join('config/infos/locations.yml')))
+  LOCATIONS = Location.all
 
   def generate_mission_info
     mission_info = MISSIONS.sample
@@ -64,4 +64,3 @@ module MissionFormater
   end
 
 end
-

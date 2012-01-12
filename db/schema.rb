@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108163125) do
+ActiveRecord::Schema.define(:version => 20120112181601) do
 
   create_table "clues", :force => true do |t|
     t.text     "description"
@@ -47,9 +47,10 @@ ActiveRecord::Schema.define(:version => 20120108163125) do
 
   create_table "ranks", :force => true do |t|
     t.string   "name"
-    t.integer  "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "track_breadth"
+    t.integer  "track_depth"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "suspects", :force => true do |t|
@@ -63,6 +64,20 @@ ActiveRecord::Schema.define(:version => 20120108163125) do
 
   add_index "suspects", ["facebook_id"], :name => "index_suspects_on_facebook_id"
   add_index "suspects", ["mission_id"], :name => "index_suspects_on_mission_id"
+
+  create_table "tracks", :force => true do |t|
+    t.integer  "mission_id"
+    t.integer  "location_id"
+    t.integer  "level"
+    t.boolean  "correct"
+    t.boolean  "initial"
+    t.boolean  "final"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "tracks", ["location_id"], :name => "index_tracks_on_location_id"
+  add_index "tracks", ["mission_id"], :name => "index_tracks_on_mission_id"
 
   create_table "traits", :force => true do |t|
     t.string   "category"
