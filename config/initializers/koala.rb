@@ -1,3 +1,7 @@
+Koala.http_service.http_options = {
+  :ssl => { :ca_path => "/etc/ssl/certs" }
+}
+
 module Facebook
   CONFIG = YAML.load_file(Rails.root.join("config/facebook.yml"))[Rails.env]
   APP_ID = CONFIG['app_id']
@@ -27,4 +31,3 @@ Koala::Facebook::OAuth.class_eval do
 
   alias_method_chain :initialize, :default_settings
 end
-
