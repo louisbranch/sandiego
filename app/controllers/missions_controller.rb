@@ -27,7 +27,7 @@ class MissionsController < ApplicationController
 
   def progress
     @mission = Mission.find(params[:id])
-    @progress = @mission.mission_progress
+    @progress = @mission.progress
     if @progress.update_attributes(:track_id => params[:track_id])
       redirect_to mission_path(@mission)
     else

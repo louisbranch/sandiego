@@ -1,4 +1,4 @@
-class MissionProgress < ActiveRecord::Base
+class Progress < ActiveRecord::Base
   before_create :set_first_track
 
   belongs_to :mission

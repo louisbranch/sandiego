@@ -15,7 +15,7 @@ class Mission < ActiveRecord::Base
   has_many :tracks, :dependent => :destroy
   has_many :cities, :through => :tracks
   has_one :suspect, :dependent => :destroy
-  has_one :mission_progress, :dependent => :destroy
+  has_one :progress, :dependent => :destroy
 
   def first_track
     tracks.where(:level => 0).first
@@ -30,11 +30,11 @@ class Mission < ActiveRecord::Base
   end
 
   def current_city
-    cities.joins(:tracks).where('tracks.id' => mission_progress.track_id).first
+    cities.joins(:tracks).where('tracks.id' => progress.track_id).first
   end
 
   def possible_tracks
-    depth = mission_progress.track.level
+    depth = progress.track.level
     tracks.where(:level => [depth -1, depth, depth + 1] )
   end
 
@@ -44,8 +44,8 @@ class Mission < ActiveRecord::Base
     self.create_suspect
   end
 
-  def create_progress
-    self.create_mission_progress
+  def create_mission_progress
+    self.create_progress
   end
 
   def set_mission_rank

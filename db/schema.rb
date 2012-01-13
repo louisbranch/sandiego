@@ -36,16 +36,6 @@ ActiveRecord::Schema.define(:version => 20120113121613) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "mission_progresses", :force => true do |t|
-    t.integer  "mission_id"
-    t.integer  "track_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "mission_progresses", ["mission_id"], :name => "index_mission_progresses_on_mission_id"
-  add_index "mission_progresses", ["track_id"], :name => "index_mission_progresses_on_track_id"
-
   create_table "missions", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -60,6 +50,16 @@ ActiveRecord::Schema.define(:version => 20120113121613) do
   add_index "missions", ["rank_id"], :name => "index_missions_on_rank_id"
   add_index "missions", ["status_id"], :name => "index_missions_on_status_id"
   add_index "missions", ["user_id"], :name => "index_missions_on_user_id"
+
+  create_table "progresses", :force => true do |t|
+    t.integer  "mission_id"
+    t.integer  "track_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "progresses", ["mission_id"], :name => "index_progresses_on_mission_id"
+  add_index "progresses", ["track_id"], :name => "index_progresses_on_track_id"
 
   create_table "ranks", :force => true do |t|
     t.string   "name"
