@@ -7,6 +7,7 @@ class MissionsController < ApplicationController
 
   def show
     @mission = Mission.find(params[:id])
+    @city = @mission.current_city
   end
 
   def create
@@ -16,6 +17,23 @@ class MissionsController < ApplicationController
     else
       flash[:alert] = "Não foi possível criar a missão!"
       redirect_to root_path
+    end
+  end
+
+  def map
+    @mission = Mission.find(params[:id])
+    @city = @mission.current_city
+    @tracks = @mission.possible_tracks
+  end
+
+  def progress
+    @mission = Mission.find(params[:id])
+    @progress = @mission.mission_progress
+    if @progress.update_attributes(:track_id => params[:track_id])
+      redirect_to mission_path(@mission)
+    else
+      flash[:alert] = "Não foi possível viajar para esta missão!"
+      redirect_to map_mission_path(@mission)
     end
   end
 
