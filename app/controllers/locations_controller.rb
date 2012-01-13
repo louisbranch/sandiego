@@ -15,8 +15,7 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(params[:location])
     if @location.save
-      flash[:notice] = 'Location was created!'
-      redirect_to @location
+      redirect_to @location, :notice => 'Location was created!'
     else
       render :new
     end
@@ -29,8 +28,7 @@ class LocationsController < ApplicationController
   def update
     @location = Location.find(params[:id])
     if @location.update_attributes(params[:location])
-      flash[:notice] = 'Location was updated!'
-      redirect_to @location
+      redirect_to @location, :notice => 'Location was updated!'
     else
       render :edit
     end
@@ -39,8 +37,7 @@ class LocationsController < ApplicationController
   def destroy
     @location = Location.find(params[:id])
     if @location.destroy
-      flash[:notice] = 'Location was deleted!'
-      redirect_to locations_path
+      redirect_to locations_path, :notice => 'Location was deleted!'
     else
       redirect_to locations_path
     end

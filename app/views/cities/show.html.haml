@@ -1,0 +1,7 @@
+%h2= @city.name
+%h3= @city.country
+%ul
+  - @clues.each do |clue|
+    = clue.description
+    = link_to 'Delete', city_clue_path(@city,clue), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'New Clue', new_city_clue_path(@city)

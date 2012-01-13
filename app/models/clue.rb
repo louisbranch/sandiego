@@ -1,8 +1,7 @@
 class Clue < ActiveRecord::Base
-  belongs_to :location
+  belongs_to :city
 
-  validates :location, :presence => true
+  validates :city, :presence => true
   validates :description, :presence => true
 
 end
-

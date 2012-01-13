@@ -8,8 +8,7 @@ class CluesController < ApplicationController
   def create
     @clue = @city.clues.build(params[:clue])
     if @clue.save
-      flash[:notice] = 'Clue was created!'
-      redirect_to @city
+      redirect_to @city, :notice => 'Clue was created!'
     else
       render :new
     end
@@ -22,8 +21,7 @@ class CluesController < ApplicationController
   def update
     @clue = Clue.find(params[:id])
     if @clue.update_attributes(params[:clue])
-      flash[:notice] = 'Clue was updated!'
-      redirect_to @city
+      redirect_to @city, :notice => 'Clue was updated!'
     else
       render :new
     end
@@ -32,8 +30,7 @@ class CluesController < ApplicationController
   def destroy
     @clue = Clue.find(params[:id])
     if @clue.destroy
-      flash[:notice] = 'Clue was deleted!'
-      redirect_to @city
+      redirect_to @city, :notice => 'Clue was deleted!'
     else
       redirect_to @city
     end
@@ -42,7 +39,7 @@ class CluesController < ApplicationController
   private
 
   def load_city
-    @city = city.find(params[:city_id])
+    @city = City.find(params[:city_id])
   end
 
 end

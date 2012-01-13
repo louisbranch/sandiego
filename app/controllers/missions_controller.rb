@@ -15,8 +15,7 @@ class MissionsController < ApplicationController
     if mission.save
       redirect_to mission_path(mission)
     else
-      flash[:alert] = "Não foi possível criar a missão!"
-      redirect_to root_path
+      redirect_to root_path, :alert => "Não foi possível criar a missão!"
     end
   end
 
@@ -32,8 +31,7 @@ class MissionsController < ApplicationController
     if @progress.update_attributes(:track_id => params[:track_id])
       redirect_to mission_path(@mission)
     else
-      flash[:alert] = "Não foi possível viajar para esta missão!"
-      redirect_to map_mission_path(@mission)
+      redirect_to map_mission_path(@mission), :alert => "Não foi possível viajar para esta missão!"
     end
   end
 
