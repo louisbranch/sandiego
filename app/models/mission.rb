@@ -3,12 +3,12 @@ class Mission < ActiveRecord::Base
   include MissionTracker
 
   before_create :set_mission_rank
-  after_create :generate_mission_tracks
-  after_create :generate_mission_info
+  after_create :create_mission_suspect
+  after_create :create_mission_tracks
+  after_create :create_mission_info
   after_create :create_mission_progress
-  #after_create :create_mission_suspect
 
-  #validates :user, :presence => true
+  validates :user, :presence => true
 
   belongs_to :user
   belongs_to :rank

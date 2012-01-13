@@ -1,6 +1,7 @@
 # encoding: UTF-8
 class Trait < ActiveRecord::Base
   belongs_to :suspect
+  has_many :networks, :as => :informable
 
   validates :suspect, :presence => true
   validates :category, :presence => true

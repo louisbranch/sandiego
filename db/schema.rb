@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120113121613) do
+ActiveRecord::Schema.define(:version => 20120113160147) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -50,6 +50,18 @@ ActiveRecord::Schema.define(:version => 20120113121613) do
   add_index "missions", ["rank_id"], :name => "index_missions_on_rank_id"
   add_index "missions", ["status_id"], :name => "index_missions_on_status_id"
   add_index "missions", ["user_id"], :name => "index_missions_on_user_id"
+
+  create_table "networks", :force => true do |t|
+    t.integer  "track_id"
+    t.integer  "location_id"
+    t.integer  "informable_id"
+    t.string   "informable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "networks", ["location_id"], :name => "index_networks_on_location_id"
+  add_index "networks", ["track_id"], :name => "index_networks_on_track_id"
 
   create_table "progresses", :force => true do |t|
     t.integer  "mission_id"
