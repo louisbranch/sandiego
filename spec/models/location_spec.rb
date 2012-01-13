@@ -6,15 +6,14 @@ describe Location do
     @location = FactoryGirl.build(:location)
   end
 
-  it 'is invalid without a city' do
-    @location.city = nil
-    @location.should have(1).error_on(:city)
+  it 'is invalid without a name' do
+    @location.name = nil
+    @location.should have(1).error_on(:name)
   end
 
-  it 'is invalid without a country' do
-    @location.country = nil
-    @location.should have(1).error_on(:country)
+  it 'is invalid without a witness' do
+    @location.witness = nil
+    @location.should have(1).error_on(:witness)
   end
 
 end
-

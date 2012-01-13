@@ -2,6 +2,13 @@ class User < ActiveRecord::Base
   has_many :missions, :dependent => :destroy
   belongs_to :rank
 
+  validates :facebook_id, :presence => true
+  validates :oauth_token, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :email, :presence => true
+  validates :rank, :presence => true
+
   def name
     "#{first_name} #{last_name}"
   end
@@ -41,12 +48,8 @@ class User < ActiveRecord::Base
     unless user
       user = create_facebook_user(signed_request['oauth_token'])
     end
-    user.oauth_token = signed_request['oauth_token']
+    user.oauth_token = signed_request['oauth_token'] # Refactor, is it still necessary?
     user
-  end
-
-  def create_first_mission
-    self.missions.create_first_mission
   end
 
   private
@@ -60,6 +63,7 @@ class User < ActiveRecord::Base
       :first_name => me['first_name'],
       :last_name => me['last_name'],
       :email => me['email'],
+      :rank => Rank.first,
     )
   end
 

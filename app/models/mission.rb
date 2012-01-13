@@ -2,36 +2,34 @@ class Mission < ActiveRecord::Base
   include MissionFormater
   include MissionTracker
 
-  before_create :generate_mission_info
+  before_create :set_mission_rank
   after_create :generate_mission_tracks
+  after_create :generate_mission_info
 
-  validates :user, :presence => true
-  validates :rank, :presence => true
+  #validates :user, :presence => true
 
   belongs_to :user
   belongs_to :rank
   has_many :tracks, :dependent => :destroy
-  has_many :locations, :through => :tracks
+  has_many :cities, :through => :tracks
   has_one :suspect, :dependent => :destroy
 
-  def self.create_first_missions(num)
-    num.times do
-      create( :rank => Rank.first )
-    end
+  def first_city
+    tracks.where(:level => 0).first.city
   end
 
-  def first_location
-    tracks.where(:level => 0).first.location
-  end
-
-  def final_location
-    tracks.where(:final => true).first.location
+  def final_city
+    tracks.where(:final => true).first.city
   end
 
   private
 
   def create_mission_suspect
     self.create_suspect
+  end
+
+  def set_mission_rank
+    self.rank = user.rank
   end
 
 end

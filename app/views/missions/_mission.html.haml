@@ -1,13 +1,3 @@
 %li{:id => ['mission', mission.id], :class => 'missions'}
-  %h1= mission.name
+  %h1= link_to mission.name, mission_path(mission)
   %div= mission.description
-  = mission.rank.name
-  %ul
-    - mission.suspect.traits.each do |trait|
-      %li=trait.description
-  ="O criminoso é #{mission.suspect.name}"
-  %ul
-    -mission.locations.each do |location|
-      %li
-        =location.city
-        =location.country

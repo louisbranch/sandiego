@@ -1,0 +1,9 @@
+%h1=@mission.name
+="Rank: #{@mission.rank.name}"
+%h2=@mission.description
+%div Seu objetivo é capturar o suspeito até 00h00 de >>Algum dia da semana<<
+%h3= "Você está em: #{@mission.first_city.name} / #{@mission.first_city.country}"
+%ul
+  %li Investigar rede criminosa
+  %li Viajar para outra cidade
+  %li Ver pistas coletadas

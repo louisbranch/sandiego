@@ -1,8 +1,6 @@
 class Location < ActiveRecord::Base
-  has_many :clues, :dependent => :destroy
-  has_many :tracks, :dependent => :destroy
 
-  validates :city, :presence => :true
-  validates :country, :presence => :true
+  validates :name, :presence => :true
+  validates :witness, :presence => :true
 
 end

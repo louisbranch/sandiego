@@ -1,4 +1,4 @@
 class Track < ActiveRecord::Base
   belongs_to :mission
-  belongs_to :location
+  belongs_to :city
 end

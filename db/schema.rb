@@ -11,23 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120112181601) do
+ActiveRecord::Schema.define(:version => 20120113023416) do
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.string   "country"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "clues", :force => true do |t|
     t.text     "description"
-    t.integer  "location_id"
+    t.integer  "city_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "clues", ["location_id"], :name => "index_clues_on_location_id"
+  add_index "clues", ["city_id"], :name => "index_clues_on_city_id"
 
   create_table "locations", :force => true do |t|
-    t.string   "city"
-    t.string   "country"
-    t.string   "coordinates"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "name"
+    t.string   "witness"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "missions", :force => true do |t|
@@ -67,15 +73,15 @@ ActiveRecord::Schema.define(:version => 20120112181601) do
 
   create_table "tracks", :force => true do |t|
     t.integer  "mission_id"
-    t.integer  "location_id"
+    t.integer  "city_id"
     t.integer  "level"
     t.boolean  "correct"
     t.boolean  "final"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "tracks", ["location_id"], :name => "index_tracks_on_location_id"
+  add_index "tracks", ["city_id"], :name => "index_tracks_on_city_id"
   add_index "tracks", ["mission_id"], :name => "index_tracks_on_mission_id"
 
   create_table "traits", :force => true do |t|

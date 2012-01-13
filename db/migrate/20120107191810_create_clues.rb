@@ -2,10 +2,9 @@ class CreateClues < ActiveRecord::Migration
   def change
     create_table :clues do |t|
       t.text :description
-      t.references :location
+      t.references :city
       t.timestamps
     end
-    add_index :clues, :location_id
+    add_index :clues, :city_id
   end
 end
-

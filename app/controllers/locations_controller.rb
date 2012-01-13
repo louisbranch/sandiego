@@ -6,7 +6,6 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    @clues = @location.clues
   end
 
   def new
@@ -48,4 +47,3 @@ class LocationsController < ApplicationController
   end
 
 end
-
