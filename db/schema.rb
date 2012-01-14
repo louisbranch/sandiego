@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120113160147) do
+ActiveRecord::Schema.define(:version => 20120114210851) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(:version => 20120113160147) do
   end
 
   add_index "clues", ["city_id"], :name => "index_clues_on_city_id"
+
+  create_table "fillers", :force => true do |t|
+    t.text     "description"
+    t.boolean  "correct"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "locations", :force => true do |t|
     t.string   "name"
@@ -56,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20120113160147) do
     t.integer  "location_id"
     t.integer  "informable_id"
     t.string   "informable_type"
+    t.boolean  "final"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

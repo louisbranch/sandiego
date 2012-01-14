@@ -2,3 +2,4 @@
 ="Rank: #{@mission.rank.name}"
 %h3=@mission.description
 %div Você tem XXh para capturar o suspeito
+= link_to 'Iniciar Missão', mission_track_path(@mission, @mission.first_track)

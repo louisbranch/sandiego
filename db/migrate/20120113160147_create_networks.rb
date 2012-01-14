@@ -4,6 +4,7 @@ class CreateNetworks < ActiveRecord::Migration
       t.references :track
       t.references :location
       t.references :informable, :polymorphic => true
+      t.boolean :final
       t.timestamps
     end
     add_index :networks, :track_id

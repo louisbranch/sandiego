@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-	rescue_from Koala::Facebook::APIError do
+  rescue_from Koala::Facebook::APIError do
     @oauth = Koala::Facebook::OAuth.new
     render 'canvas/new'
   end
@@ -11,4 +11,3 @@ class ApplicationController < ActionController::Base
   end
 
 end
-

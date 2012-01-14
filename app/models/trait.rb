@@ -93,26 +93,26 @@ class Trait < ActiveRecord::Base
     if relationship_status
       case relationship_status
         when 'Single'
-          status = 'solteiro'
+          status = 'ser solteiro'
         when 'In a relationship'
-          status = 'namorando'
+          status = 'estar namorando'
         when 'Engaged'
-          status = 'noivo'
+          status = 'estar noivo'
         when 'Married'
-          status = 'casado'
+          status = 'ser casado'
         when 'It\'s complidated'
-          status = 'em um relacionamento "complicado"'
+          status = 'estar em um relacionamento "complicado"'
         when 'In a open relationship'
-          status = 'em um relacionamento aberto'
+          status = 'estar em um relacionamento aberto'
         when 'Widowed'
-          status = 'viúvo'
+          status = 'ser viúvo'
         when 'Separated'
-          status = 'separado'
+          status = 'ser separado'
         when 'Divorced'
-          status = 'divorciado'
+          status = 'ser divorciado'
       end
       self.category = 'relationship_status'
-      self.description = "Ele disse estar #{status}"
+      self.description = "Ele disse #{status}"
       self.save
     end
   end

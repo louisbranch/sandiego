@@ -65,3 +65,20 @@ Location.create([
   { :name => 'Supermercado', :witness => 'Caixa' },
   { :name => 'Oficina', :witness => 'Mecânico' },
 ])
+
+Filler.create([
+  { :description => 'Ele está na cidade.', :correct => true },
+  { :description => 'Você está próximo de encontrá-lo.', :correct => true },
+  { :description => 'A sua pista está esquentado.', :correct => true },
+  { :description => 'Ouvi falar que ele está por aqui.', :correct => true },
+  { :description => 'Ele está escondido nesta cidade.', :correct => true },
+  { :description => 'Ele está próximo!', :correct => true },
+  { :description => 'Ele esteve aqui há pouco, você precisa mover-se mais rápido.', :correct => true },
+  #
+  { :description => 'Você está na trilha errada.', :correct => false },
+  { :description => 'Ninguem suspeito passou por aqui.', :correct => false },
+  { :description => 'Acho que sua pista está fria, amigo.', :correct => false },
+  { :description => 'Não ouvi falar.', :correct => false },
+  { :description => 'Quem? Acho que você está enganado.', :correct => false },
+  { :description => 'Acho que você deveria estar procurando em outro lugar.', :correct => false },
+])
