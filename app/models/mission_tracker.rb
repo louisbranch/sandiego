@@ -38,6 +38,7 @@ module MissionTracker
   def create_correct_track(city, level)
     if level == rank.track_depth # Last track
       self.tracks.create(:city_id => city, :level => level, :correct => true, :final => true)
+      #create final information
     else
       track = self.tracks.create(:city_id => city, :level => level, :correct => true, :final => false)
       create_network_information(track, city)

@@ -29,12 +29,16 @@ class Mission < ActiveRecord::Base
     cities.joins(:tracks).where('tracks.final' => true).first
   end
 
+  def current_track
+    progress.track
+  end
+
   def current_city
-    cities.joins(:tracks).where('tracks.id' => progress.track_id).first
+    cities.joins(:tracks).where('tracks.id' => current_track.id).first
   end
 
   def possible_tracks
-    depth = progress.track.level
+    depth = current_track.level
     tracks.where(:level => [depth -1, depth, depth + 1] )
   end
 

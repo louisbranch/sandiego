@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     f ||= friends
     unless f.empty?
       random_friend_id = f.slice!(rand(f.length - 1))['id']
-      if friend(random_friend_id).size >= 13
+      if friend(random_friend_id).size > 15 # 8 attributes sent by Facebook are not relevant for this game
         friend(random_friend_id)
       else
         valid_random_friend(f)

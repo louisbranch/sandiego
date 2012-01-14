@@ -1,0 +1,6 @@
+%h2= @track.city.name
+%h3= @track.city.country
+%ul
+  %li= link_to 'Investigar locais', mission_locations_path(@mission)
+  %li= link_to 'Viajar para outra cidade', mission_cities_path(@mission)
+  %li Ver pistas coletadas

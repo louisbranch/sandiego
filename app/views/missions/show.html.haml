@@ -1,9 +1,4 @@
-%h1=@mission.name
+%h2=@mission.name
 ="Rank: #{@mission.rank.name}"
-%h2=@mission.description
+%h3=@mission.description
 %div Você tem XXh para capturar o suspeito
-%h3= "Você está em: #{@city.name} / #{@city.country}"
-%ul
-  %li= link_to 'Investigar rede criminosa', map_mission_path(@mission)
-  %li= link_to 'Viajar para outra cidade', map_mission_path(@mission)
-  %li Ver pistas coletadas

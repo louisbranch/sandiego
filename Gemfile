@@ -19,6 +19,7 @@ group :development, :test do
   gem 'execjs'
   gem 'therubyracer'
   gem 'rspec-rails', '~> 2.8.1'
+  gem 'shoulda-matchers'
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
@@ -38,4 +39,3 @@ group :production do
   gem 'therubyracer-heroku'
   gem 'pg'
 end
-

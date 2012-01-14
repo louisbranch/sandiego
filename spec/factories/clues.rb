@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :clue do
     description "MyText"
-    association :location
+    association :city
   end
 end
-

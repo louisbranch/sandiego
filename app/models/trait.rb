@@ -27,7 +27,7 @@ class Trait < ActiveRecord::Base
     year_regex = /\d\d\/\d\d\/\d\d\d\d/
     if birthday && birthday.match(year_regex)
       years = Time.now.year - birthday.match(/\d\d\d\d/)[0].to_i
-      self.category = 'hometown'
+      self.category = 'birthday'
       self.description = "Ele parecia ter #{years} anos"
       self.save
     end
@@ -50,7 +50,7 @@ class Trait < ActiveRecord::Base
     if current_city
       current_city = current_city['name']
       self.category = 'hometown'
-      self.description = "Ele disse morar em #{current_city}"
+      self.description = "Ele disse que mora em #{current_city}"
       self.save
     end
   end

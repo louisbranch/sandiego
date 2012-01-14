@@ -7,9 +7,4 @@ describe Mission do
     @mission = Factory.stub(:mission, :rank => @rank)
   end
 
-  it 'creates n missions for the first rank' do
-    pending
-  end
-
 end
-

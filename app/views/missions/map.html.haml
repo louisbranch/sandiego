@@ -1,5 +1,0 @@
-%h1= "Você está em #{@city.name}"
-%ul
-  - @tracks.includes(:city).each do |track|
-    - unless track.city == @city
-      %li= link_to track.city.name, progress_mission_path(@mission, :track_id => track.id), :method => :put

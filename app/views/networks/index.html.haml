@@ -1,0 +1,4 @@
+%h2 Investigar Locais
+%ul
+  -@networks.includes(:location).each do |network|
+    %li= link_to network.location.name, mission_network_path(@mission,network)
