@@ -4,7 +4,7 @@ class CreateTraits < ActiveRecord::Migration
       t.string :category
       t.text :description
       t.references :suspect
-
+      t.boolean :found
       t.timestamps
     end
     add_index :traits, :suspect_id

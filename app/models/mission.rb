@@ -3,9 +3,9 @@ class Mission < ActiveRecord::Base
   include MissionTracker
 
   before_create :set_mission_rank
+  before_create :create_mission_info
   after_create :create_mission_suspect
   after_create :create_mission_tracks
-  after_create :create_mission_info
   after_create :create_mission_progress
 
   validates :user, :presence => true
@@ -42,6 +42,17 @@ class Mission < ActiveRecord::Base
     tracks.where(:level => [depth -1, depth, depth + 1] )
   end
 
+  def finish
+    self.finished = true
+    if suspect.traits.found.count >= rank.track_depth
+      self.won = true
+    else
+      self.won = false
+    end
+    self.save
+    collapse
+  end
+
   private
 
   def create_mission_suspect
@@ -54,6 +65,10 @@ class Mission < ActiveRecord::Base
 
   def set_mission_rank
     self.rank = user.rank
+  end
+
+  def collapse
+    tracks.destroy_all
   end
 
 end

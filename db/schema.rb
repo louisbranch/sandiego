@@ -49,13 +49,13 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
     t.date     "end_date"
     t.integer  "user_id"
     t.integer  "rank_id"
-    t.integer  "status_id"
+    t.boolean  "finished"
+    t.boolean  "won"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   add_index "missions", ["rank_id"], :name => "index_missions_on_rank_id"
-  add_index "missions", ["status_id"], :name => "index_missions_on_status_id"
   add_index "missions", ["user_id"], :name => "index_missions_on_user_id"
 
   create_table "networks", :force => true do |t|
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
     t.string   "category"
     t.text     "description"
     t.integer  "suspect_id"
+    t.boolean  "found"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

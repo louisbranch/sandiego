@@ -1,5 +1,23 @@
 %h2=@mission.name
 ="Rank: #{@mission.rank.name}"
 %h3=@mission.description
-%div Você tem XXh para capturar o suspeito
-= link_to 'Iniciar Missão', mission_track_path(@mission, @mission.first_track)
+- if @mission.finished?
+  - if @mission.won?
+    %div Você conseguiu capturar o criminoso!
+  - else
+    %div Você não conseguiu capturar o criminoso!
+  %h3= @mission.suspect.name
+  =image_tag(@mission.suspect.photo_url)
+- else
+  %div Você tem XXh para capturar o suspeito
+  = link_to 'Iniciar Missão', mission_track_path(@mission, @mission.first_track)
+-#%ul
+-#  - @mission.tracks.each do |track|
+-#    %li
+-#      = track.city.name
+-#      %ul
+-#        - track.networks.each do |network|
+-#          %li
+-#            = network.location.name
+-#            %ul
+-#              %li= network.informable.description

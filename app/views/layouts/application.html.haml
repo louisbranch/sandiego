@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title Project Sandiego
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{:class => "#{@body_class}", :id => "#{@body_id}"}
+    %h1 Project Sandiego
+    = render :partial => 'shared/flash_messages'
+    = yield

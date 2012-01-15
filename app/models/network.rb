@@ -7,4 +7,8 @@ class Network < ActiveRecord::Base
   validates :location, :presence => true
   validates :informable, :presence => true
 
+  def trait?
+    informable_type == 'Trait'
+  end
+
 end

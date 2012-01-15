@@ -1,13 +1,12 @@
 # encoding: UTF-8
 - name: Homem é morto por Sabre de Luz durante corrida
-  description: O crime ocorreu %%yesterday%% durante a corrida de pods em %%city%%, %%country%%. A vitima, identificada apenas como Luke, faleceu antes da chegada dos médicos. A Polícia Imperial foi chamada, mas o suspeito já havia fugido.
+  description: O crime ocorreu na manhã de segunda-feira durante a corrida de pods. A vitima, identificada apenas como Luke, faleceu antes da chegada dos médicos. A Polícia Imperial foi chamada, mas o suspeito já havia fugido.
 
 - name: Um Anel é roubado a caminho de Mordor
-  description: Golum, o último proprietário do Anel, afirma que a jóia foi roubada em %%city%%, %%country%%. A polícia e Sauron procuram pistas sobre o ladrão.
+  description: Golum, o último proprietário do Anel, afirma que a jóia foi roubada. A polícia e Sauron procuram pistas sobre o ladrão.
 
 - name: Wally está desaparecido
-  description: Testemunhas afirmam que um suspeito rondava a casa de Wally em %%city%%, %%country%% poucos dias antes do desparecimento. Após multiplas buscas feitas nos livros da série, o seu paradeiro ainda é desconhecido. A polícia se pergunta onde estará Wally.
+  description: Testemunhas afirmam que um suspeito rondava a casa de Wally poucos dias antes do desparecimento. Após multiplas buscas feitas nos livros da série, o seu paradeiro ainda é desconhecido. A polícia se pergunta onde estará Wally.
 
 - name: Senhor Cabeça de Batata é encontrado desmembrado
-  description: A vítima foi encontrada morta na noite de %%yesterday%% em sua casa em %%city%%, %%country%%. Os legistas demoraram cerca de 3 horas para coletar todas as evidências. A polícia afirma que a investigação será feita por partes.
-
+  description: A vítima foi encontrada morta na noite de sexta-feira em sua casa. Os legistas demoraram cerca de 3 horas para coletar todas as evidências. A polícia afirma que a investigação será feita por partes.

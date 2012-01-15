@@ -7,6 +7,14 @@ class NetworksController < ApplicationController
 
   def show
     @network = Network.find(params[:id])
+    if @network.final?
+      @mission.finish
+      redirect_to mission_path(@mission)
+    end
+    if @network.trait? && !@network.informable.found?
+      @network.informable.update_attributes(:found => true)
+      flash.now[:notice] = 'Pista do suspeito encontrada!'
+    end
   end
 
   private

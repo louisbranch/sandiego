@@ -33,11 +33,11 @@ module MissionTracker
   end
 
   def correct_filler
-    @correct_fillers.slice!(rand(@correct_fillers.length - 1))
+    @correct_fillers.sample
   end
 
   def wrong_filler
-    @wrong_fillers.slice!(rand(@wrong_fillers.length - 1))
+    @wrong_fillers.sample
   end
 
   def create_first_track(city)
@@ -57,7 +57,7 @@ module MissionTracker
 
   def create_wrong_track(city, level)
     track = self.tracks.create(:city_id => city, :level => level, :correct => false, :final => false)
-    create_wrong_filler_information(track)
+    create_network_wrong_information(track)
   end
 
   def create_network_information(track, city)

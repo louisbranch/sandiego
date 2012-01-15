@@ -7,6 +7,8 @@ class Trait < ActiveRecord::Base
   validates :category, :presence => true
   validates :description, :presence => true
 
+  scope :found, :conditions => { :found => true }
+
   def gender
     gender = suspect.raw_info['gender']
     if gender

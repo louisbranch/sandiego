@@ -6,12 +6,11 @@ class CreateMissions < ActiveRecord::Migration
       t.date :end_date
       t.references :user
       t.references :rank
-      t.references :status
+      t.boolean :finished
+      t.boolean :won
       t.timestamps
     end
     add_index :missions, :user_id
     add_index :missions, :rank_id
-    add_index :missions, :status_id
   end
 end
-
