@@ -3,7 +3,7 @@ class CreateCities < ActiveRecord::Migration
     create_table :cities do |t|
       t.string :name
       t.string :country
-
+      t.string :photo_path
       t.timestamps
     end
   end

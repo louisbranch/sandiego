@@ -4,15 +4,18 @@ class Progress < ActiveRecord::Base
 
   belongs_to :mission
   belongs_to :track
+  belongs_to :network
 
   validates :mission, :presence => true
 
-  def city_travel
+  def city_travel(track)
+    self.track = track
     hours = rand(3) + 7
     reduce_time(hours)
   end
 
-  def location_travel
+  def location_travel(network)
+    self.network = network
     hours = rand(3) + 1
     reduce_time(hours)
   end

@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
   create_table "cities", :force => true do |t|
     t.string   "name"
     t.string   "country"
+    t.string   "photo_path"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -38,9 +39,11 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
+    t.string   "photo_path"
     t.string   "witness"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "witness_photo_path"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "missions", :force => true do |t|
@@ -74,12 +77,14 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
   create_table "progresses", :force => true do |t|
     t.integer  "mission_id"
     t.integer  "track_id"
+    t.integer  "network_id"
     t.integer  "remaining_hours"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
   add_index "progresses", ["mission_id"], :name => "index_progresses_on_mission_id"
+  add_index "progresses", ["network_id"], :name => "index_progresses_on_network_id"
   add_index "progresses", ["track_id"], :name => "index_progresses_on_track_id"
 
   create_table "ranks", :force => true do |t|

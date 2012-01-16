@@ -2,4 +2,7 @@
 %ul
   - @tracks.includes(:city).order('cities.name').each do |track|
     - unless track.city == @city
-      %li= link_to track.city.name, mission_track_path(@mission, track)
+      %li
+        = link_to mission_track_path(@mission, track) do
+          = track.city.name
+          = image_tag(track.city.photo_path)

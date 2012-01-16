@@ -1,0 +1,8 @@
+%h4 Investigar Cidade
+%ul#networks_list
+  -@networks.includes(:location).order('locations.name').each do |network|
+    %li
+      = link_to mission_network_path(@mission,network) do
+        = image_tag(network.location.photo_path)
+        %div
+          %span= network.location.name

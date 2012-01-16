@@ -1,6 +1,5 @@
-#encoding: UTF-8
 class TracksController < ApplicationController
-  before_filter :load_mission
+  before_filter :load_resources
 
   layout 'mission'
 
@@ -12,18 +11,21 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find(params[:id])
-    unless @progress.track == @track
-      @progress.update_attributes(:track => @track)
-      @progress.city_travel
-    end
-    render :show
+    @networks = @mission.current_track.networks
+    update_progress_city
   end
 
   private
 
-  def load_mission
+  def load_resources
     @mission = Mission.find(params[:mission_id])
     @progress = @mission.progress
+  end
+
+  def update_progress_city
+    unless @progress.track == @track
+      @progress.city_travel(@track)
+    end
   end
 
 end

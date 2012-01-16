@@ -4,7 +4,7 @@ Sandiego::Application.routes.draw do
 
   resources :missions, :only => [:index, :show], :path => '/casos' do
     resources :tracks, :only => [:index, :show], :path => '/cidades'
-    resources :networks, :only => [:index, :show], :path => '/locais'
+    resources :networks, :only => :show, :path => '/locais'
     resources :traits, :only => :index, :path => '/pistas'
   end
 

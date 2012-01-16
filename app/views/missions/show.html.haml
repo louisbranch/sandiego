@@ -5,9 +5,8 @@
     = @mission.rank.stars
 =image_tag('potato.png', :class => 'mission_photo')
 %div.mission_suspect
-  %h3 Suspeito
   =image_tag(@mission.suspect.photo_url, :class => 'suspect_photo')
-  %h3= @mission.suspect.alias
+  %strong= @mission.suspect.alias
 %div.mission_details
   %h2=@mission.name
   = simple_format(@mission.description)

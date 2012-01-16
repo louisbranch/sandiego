@@ -1,3 +1,5 @@
-%h2= @network.location.name
-%h3= @network.location.witness
-%h4= @network.informable.description
+%h4= @network.location.name
+%div#network_witness
+  = image_tag(@network.location.witness_photo_path)
+  %div#witness_info= @network.informable.description
+  %div#witness_name= @network.location.witness
