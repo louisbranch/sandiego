@@ -1,23 +1,24 @@
-%h2=@mission.name
-="Rank: #{@mission.rank.name}"
-%h3=@mission.description
-- if @mission.finished?
-  - if @mission.won?
-    %div Você conseguiu capturar o criminoso!
-  - else
-    %div Você não conseguiu capturar o criminoso!
-  %h3= @mission.suspect.name
-  =image_tag(@mission.suspect.photo_url)
-- else
-  %div Você tem XXh para capturar o suspeito
-  = link_to 'Iniciar Missão', mission_track_path(@mission, @mission.first_track)
--#%ul
--#  - @mission.tracks.each do |track|
--#    %li
--#      = track.city.name
--#      %ul
--#        - track.networks.each do |network|
--#          %li
--#            = network.location.name
--#            %ul
--#              %li= network.informable.description
+%div.mission_rank
+  = link_to mission_path(@mission) do
+    %strong Ranking:
+    = @mission.rank.name
+    &#9733
+=image_tag('potato.png', :class => 'mission_photo')
+%div.mission_suspect
+  %h3 Suspeito
+  =image_tag(@mission.suspect.photo_url, :class => 'suspect_photo')
+  %h3= @mission.suspect.alias
+%div.mission_details
+  %h2=@mission.name
+  = simple_format(@mission.description)
+  - unless @mission.finished?
+    %div.mission_hours
+      = "Você precisa concluir essa missão em até #{@mission.hours} horas."
+      - unless @mission.new_mission?
+        = "Tempo restante: #{@mission.progress.remaining_hours} horas."
+  %div.mission_status= @mission.status
+  - unless @mission.finished?
+    - if @mission.new_mission?
+      = link_to 'Iniciar Missão >>', mission_track_path(@mission, @mission.first_track), :class => 'button'
+    - else
+      = link_to 'Continuar Missão >>', mission_track_path(@mission, @mission.current_track), :class => 'button'

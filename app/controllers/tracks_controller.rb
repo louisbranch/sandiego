@@ -8,19 +8,19 @@ class TracksController < ApplicationController
   end
 
   def show
-    @progress = @mission.progress
     @track = Track.find(params[:id])
-    if @progress.update_attributes(:track => @track)
-      render :show
-    else
-      redirect_to mission_tracks_path(@mission), :alert => "Não foi possível viajar para esta missão!"
+    unless @progress.track == @track
+      @progress.update_attributes(:track => @track)
+      @progress.city_travel
     end
+    render :show
   end
 
   private
 
   def load_mission
     @mission = Mission.find(params[:mission_id])
+    @progress = @mission.progress
   end
 
 end

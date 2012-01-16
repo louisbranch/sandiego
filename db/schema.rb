@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
   create_table "missions", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.date     "end_date"
+    t.integer  "hours"
     t.integer  "user_id"
     t.integer  "rank_id"
     t.boolean  "finished"
@@ -74,8 +74,9 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
   create_table "progresses", :force => true do |t|
     t.integer  "mission_id"
     t.integer  "track_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "remaining_hours"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   add_index "progresses", ["mission_id"], :name => "index_progresses_on_mission_id"

@@ -3,7 +3,7 @@ class CreateProgresses < ActiveRecord::Migration
     create_table :progresses do |t|
       t.references :mission
       t.references :track
-
+      t.integer :remaining_hours
       t.timestamps
     end
     add_index :progresses, :mission_id

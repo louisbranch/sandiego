@@ -1,6 +1,3 @@
 = @user.first_name
-- if @user.missions.empty?
-  %h3 Regras
-  = link_to 'Jogar', missions_path, :method => :post
-- else
-  = link_to 'Missões', missions_path
+%h3 Regras
+= link_to 'Jogar', missions_path

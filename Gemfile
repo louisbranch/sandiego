@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0.rc1'
+gem 'rails', '3.2.0.rc2'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.0'
@@ -13,6 +13,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'coffeebeans'
 gem 'koala'
+gem 'bourbon'
 
 group :development, :test do
   gem 'sqlite3'

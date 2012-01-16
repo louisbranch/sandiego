@@ -12,7 +12,19 @@ class Suspect < ActiveRecord::Base
   end
 
   def photo_url
-    "https://graph.facebook.com/#{facebook_id}/picture?type=normal"
+    if mission.finished?
+      "https://graph.facebook.com/#{facebook_id}/picture?type=large"
+    else
+      'suspect.gif'
+    end
+  end
+
+  def alias
+    if mission.finished?
+      name
+    else
+      'Desconhecido'
+    end
   end
 
   private
@@ -39,4 +51,3 @@ class Suspect < ActiveRecord::Base
   end
 
 end
-

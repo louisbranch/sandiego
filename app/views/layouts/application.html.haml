@@ -2,10 +2,18 @@
 %html
   %head
     %title Project Sandiego
+    = stylesheet_link_tag    'http://fonts.googleapis.com/css?family=Vast+Shadow|Special+Elite'
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body{:class => "#{@body_class}", :id => "#{@body_id}"}
-    %h1 Project Sandiego
+    %header
+      %h1 Project Sandiego
+      %nav
+        =link_to 'Casos', missions_path
+        =link_to 'Rankings', missions_path
+        =link_to 'Regras', missions_path
+        =link_to 'Sobre', missions_path
+
     = render :partial => 'shared/flash_messages'
     = yield

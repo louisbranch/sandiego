@@ -3,7 +3,7 @@ class CreateMissions < ActiveRecord::Migration
     create_table :missions do |t|
       t.string :name
       t.text :description
-      t.date :end_date
+      t.integer :hours
       t.references :user
       t.references :rank
       t.boolean :finished

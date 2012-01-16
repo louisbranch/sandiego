@@ -1,8 +1,10 @@
+#encoding: UTF-8
 class Mission < ActiveRecord::Base
   include MissionFormater
   include MissionTracker
 
   before_create :set_mission_rank
+  before_create :set_mission_hours
   before_create :create_mission_info
   after_create :create_mission_suspect
   after_create :create_mission_tracks
@@ -53,6 +55,34 @@ class Mission < ActiveRecord::Base
     collapse
   end
 
+  def overtime
+    self.finished = true
+    self.won = false
+    self.save
+    collapse
+  end
+
+  def status
+    case
+      when finished? && won?
+        'Caso concluído: suspeito preso'
+      when finished? && !won?
+        'Caso perdido: suspeito escapou'
+      when new_mission?
+        'Caso não iniciado'
+      else
+        'Caso em andamento'
+    end
+  end
+
+  def new_mission?
+    if !finished? && hours == progress.remaining_hours
+      true
+    else
+      false
+    end
+  end
+
   private
 
   def create_mission_suspect
@@ -65,6 +95,10 @@ class Mission < ActiveRecord::Base
 
   def set_mission_rank
     self.rank = user.rank
+  end
+
+  def set_mission_hours
+    self.hours = 72
   end
 
   def collapse

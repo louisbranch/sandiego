@@ -1,3 +1,16 @@
-%li{:id => ['mission', mission.id], :class => 'missions'}
-  %h1= link_to mission.name, mission_path(mission)
-  %div= mission.description
+%li{:id => ['mission', mission.id]}
+  = link_to mission_path(mission) do
+    =image_tag('potato.png', :class => 'mission_photo')
+  %div.mission_suspect
+    = link_to mission_path(mission) do
+      =image_tag(mission.suspect.photo_url, :class => 'suspect_photo')
+      %strong Suspeito
+  %div.mission_details
+    %div.mission_rank
+      = link_to mission_path(mission) do
+        %strong Ranking:
+        = mission.rank.name
+        &#9733
+    %h3= link_to mission.name, mission_path(mission)
+    = simple_format(mission.description)
+    %div.mission_status= link_to mission.status, mission_path(mission)
