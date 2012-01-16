@@ -2,7 +2,7 @@
   = link_to mission_path(@mission) do
     %strong Ranking:
     = @mission.rank.name
-    &#9733
+    = @mission.rank.stars
 =image_tag('potato.png', :class => 'mission_photo')
 %div.mission_suspect
   %h3 Suspeito

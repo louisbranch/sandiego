@@ -13,7 +13,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'coffeebeans'
 gem 'koala'
-gem 'bourbon'
+gem 'rdiscount'
 
 group :development, :test do
   gem 'sqlite3'

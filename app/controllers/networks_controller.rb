@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class NetworksController < ApplicationController
   before_filter :load_mission
 

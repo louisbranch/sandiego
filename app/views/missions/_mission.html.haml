@@ -10,7 +10,7 @@
       = link_to mission_path(mission) do
         %strong Ranking:
         = mission.rank.name
-        &#9733
+        = mission.rank.stars
     %h3= link_to mission.name, mission_path(mission)
     = simple_format(mission.description)
     %div.mission_status= link_to mission.status, mission_path(mission)

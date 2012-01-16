@@ -83,7 +83,9 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
   add_index "progresses", ["track_id"], :name => "index_progresses_on_track_id"
 
   create_table "ranks", :force => true do |t|
+    t.integer  "position"
     t.string   "name"
+    t.integer  "xp"
     t.integer  "track_breadth"
     t.integer  "track_depth"
     t.datetime "created_at",    :null => false

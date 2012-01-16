@@ -1,10 +1,11 @@
 # encoding: UTF-8
 
 Rank.create([
-  { :name => 'Recruta', :track_depth => 3, :track_breadth => 2 },
-  { :name => 'Aspira', :track_depth => 5, :track_breadth => 3 },
-  { :name => 'Detetive', :track_depth => 7, :track_breadth => 3 },
-  { :name => 'Capitão', :track_depth => 9, :track_breadth => 4 },
+  { :name => 'Aspira', :position => 1, :track_depth => 3, :track_breadth => 2 },
+  { :name => 'Recruta', :position => 2, :track_depth => 4, :track_breadth => 3 },
+  { :name => 'Detetive', :position => 3, :track_depth => 5, :track_breadth => 3 },
+  { :name => 'Investigador', :position => 4, :track_depth => 6, :track_breadth => 4 },
+  { :name => 'Agente Secreto', :position => 5, :track_depth => 7, :track_breadth => 4 },
 ])
 
 City.create([

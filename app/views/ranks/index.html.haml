@@ -1,0 +1,7 @@
+%h2 Ranking
+%table
+  %tbody
+    - @ranks.each do |rank|
+      %tr
+        %td= rank.name
+        %td= rank.stars

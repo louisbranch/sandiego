@@ -8,6 +8,10 @@ Sandiego::Application.routes.draw do
     resources :traits, :only => :index, :path => '/pistas'
   end
 
+  resources :rules, :only => :index
+  resources :ranks, :only => :index
+  resource :about, :only => :show, :controller => 'about'
+
   resources :cities do
     resources :clues
   end
