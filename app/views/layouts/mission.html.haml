@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %title Project Sandiego
+    = stylesheet_link_tag    'http://fonts.googleapis.com/css?family=Vast+Shadow|Special+Elite'
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{:class => "#{@body_class}", :id => "#{@body_id}"}
+    %header#main
+      %h1 Project Sandiego
+      %nav
+        =link_to 'Casos', missions_path
+        =link_to 'Ranking', ranks_path
+        =link_to 'Regras', rules_path
+        =link_to 'Sobre', about_path
+    %header#mission_header
+      %h2="Caso: #{@mission.name}"
+      %div.mission_time
+        %strong Tempo Restante:
+        = "#{@progress.remaining_hours} horas"
+      - if @track
+        %h3= "#{@track.city.name} / #{@track.city.country}"
+    = render :partial => 'shared/flash_messages'
+    = yield
+    %nav#mission_navigation
+      = link_to 'Dados da Missão', mission_path(@mission), :id => 'mission_info'
+      = link_to 'Investigar locais', mission_networks_path(@mission), :id => 'mission_locations'
+      = link_to 'Mudar de cidade', mission_tracks_path(@mission), :id => 'mission_cities'
+      = link_to 'Pistas coletadas', mission_traits_path(@mission), :id => 'mission_traits'

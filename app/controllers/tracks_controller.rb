@@ -2,9 +2,12 @@
 class TracksController < ApplicationController
   before_filter :load_mission
 
+  layout 'mission'
+
   def index
     @city = @mission.current_city
     @tracks = @mission.possible_tracks
+    @track = @mission.current_track
   end
 
   def show

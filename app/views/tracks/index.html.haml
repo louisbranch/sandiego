@@ -1,7 +1,5 @@
-%h2 Cidades
-%h3= "Você está em #{@city.name}"
+%h4 Cidades
 %ul
   - @tracks.includes(:city).order('cities.name').each do |track|
     - unless track.city == @city
       %li= link_to track.city.name, mission_track_path(@mission, track)
-= render 'shared/mission_navigation', :mission => @mission

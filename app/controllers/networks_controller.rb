@@ -2,12 +2,16 @@
 class NetworksController < ApplicationController
   before_filter :load_mission
 
+  layout 'mission'
+
   def index
     @networks = @mission.current_track.networks
+    @track = @mission.current_track
   end
 
   def show
     @network = Network.find(params[:id])
+    @track = @mission.current_track
     @progress.location_travel
     if @network.final?
       @mission.finish

@@ -7,10 +7,9 @@
       %strong Suspeito
   %div.mission_details
     %div.mission_rank
-      = link_to mission_path(mission) do
+      = link_to ranks_path do
         %strong Ranking:
         = mission.rank.name
         = mission.rank.stars
     %h3= link_to mission.name, mission_path(mission)
-    = simple_format(mission.description)
-    %div.mission_status= link_to mission.status, mission_path(mission)
+    %div.mission_status= mission.status

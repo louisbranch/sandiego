@@ -1,6 +1,5 @@
 body.missions
   div.mission_rank a
-    margin-top: -12px
     margin-bottom: 10px
     text-align: center
     background-color: #4C4236
@@ -17,28 +16,28 @@ body.missions
       text-transform: uppercase
       margin: 10px 0
     div.mission_status
-      color: #FFF
       font-weight: bold
-      background-color: #883D38
-      padding: 10px
+      font-size: 18px
+      color: #883D38
       display: inline-block
       margin: 10px 0
-      a
-        color: #FFF
 
 body.missions#index
   ul#missions_list
     li
-      box-shadow: 2px 2px 2px #333
       margin: 50px 0
-      min-height: 220px
-      background-color: #f2f2f2
+      min-height: 170px
+      background-color: #fff
+      border-top: 2px solid #ddd
+      border-bottom: 2px solid #ddd
+      padding: 10px 0
       img.mission_photo
         padding: 5px
         background-color: #fff
         box-shadow: 2px 2px 2px #666
         margin-right: 10px
         float: left
+        height: 150px
         -webkit-transform: rotate(-5deg)
       div.mission_suspect
         float: right
@@ -75,3 +74,41 @@ body.missions#show
     box-shadow: 2px 2px 2px #666
     img
       margin: 10px 0
+
+header#mission_header
+  position: relative
+  h2
+    margin-right: 230px
+  div.mission_time
+    color: #FFF
+    font-weight: bold
+    background-color: #883D38
+    padding: 10px
+    position: absolute
+    top: 0
+    right: 0
+  h3
+    border-top: 2px solid #ddd
+    border-bottom: 2px solid #ddd
+    padding: 10px 5px
+    background-color: #fff
+
+nav#mission_navigation
+  text-align: center
+  margin-top: 50px
+  a
+    font-size: 18px
+    text-align: center
+    display: inline-block
+    padding-top: 100px
+    width: 180px
+    margin-right: 10px
+    box-shadow: -2px -2px 2px #999
+    &#mission_info
+      background: url(asset_path('mission.png', image)) no-repeat top center #fff
+    &#mission_cities
+      background: url(asset_path('cities.png', image)) no-repeat top center #fff
+    &#mission_locations
+      background: url(asset_path('locations.png', image)) no-repeat top center #fff
+    &#mission_traits
+      background: url(asset_path('traits.png', image)) no-repeat top center #fff

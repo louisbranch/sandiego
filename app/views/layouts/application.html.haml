@@ -7,13 +7,12 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body{:class => "#{@body_class}", :id => "#{@body_id}"}
-    %header
+    %header#main
       %h1 Project Sandiego
       %nav
         =link_to 'Casos', missions_path
         =link_to 'Ranking', ranks_path
         =link_to 'Regras', rules_path
         =link_to 'Sobre', about_path
-
     = render :partial => 'shared/flash_messages'
     = yield
