@@ -11,4 +11,10 @@ class Network < ActiveRecord::Base
     informable_type == 'Trait'
   end
 
+  def trait_found
+    unless informable.found?
+      informable.update_attributes(:found => true)
+    end
+  end
+
 end

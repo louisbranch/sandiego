@@ -90,11 +90,12 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
   create_table "ranks", :force => true do |t|
     t.integer  "position"
     t.string   "name"
-    t.integer  "xp"
     t.integer  "track_breadth"
     t.integer  "track_depth"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "minimum_xp"
+    t.integer  "bonus_multiplier"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "suspects", :force => true do |t|
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
     t.text     "raw_info"
     t.string   "facebook_id"
     t.string   "name"
+    t.string   "gender"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -140,6 +142,7 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
     t.string   "last_name"
     t.string   "email"
     t.integer  "rank_id"
+    t.integer  "xp"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

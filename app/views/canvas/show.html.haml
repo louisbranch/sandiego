@@ -1,12 +1,3 @@
-:markdown
-  ## O Jogo
-  Em project Project Sandiego você é um detetive encarregado de solucionar crimes inusitados cometidos ao redor do mundo. Sua missão é coletar evidências que levem a um suspeito, perseguí-lo por diversas cidades e prendê-lo ao final de cada caso.
-
-  Quem são os criminosos? Nada menos que seus amigos do Facebook.
-  ## Regras
-
-  A cada cidade que você passar, você pode visitar locais nos quais o suspeito possivelmente esteve. Se você estiver na trilha certa, a testemunha lhe dará uma pista sobre quem é o suspeito ou sobre a próxima cidade que você deve investigar.
-
-  Se você conseguir pistas suficientes para incriminar o suspeito e encontrar seu esconderijo antes que o tempo acabe, você vence!
-
+= render 'shared/game_explanation'
+= render 'shared/rules'
 = link_to 'Jogar', missions_path, :class => 'button'

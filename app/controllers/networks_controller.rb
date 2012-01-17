@@ -26,8 +26,8 @@ class NetworksController < ApplicationController
   end
 
   def mark_trait_as_found
-    if @network.trait? && !@network.informable.found?
-      @network.informable.update_attributes(:found => true)
+    if @network.trait?
+      @network.trait_found
       flash.now[:notice] = 'Pista do suspeito encontrada!'
     end
   end
@@ -35,7 +35,7 @@ class NetworksController < ApplicationController
   def finish_mission
     if @network.final?
       @mission.finish
-      redirect_to mission_path(@mission), :notice => 'Você capturou o suspeito!'
+      redirect_to mission_path(@mission)
     end
   end
 

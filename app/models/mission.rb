@@ -46,7 +46,7 @@ class Mission < ActiveRecord::Base
 
   def finish
     self.finished = true
-    if suspect.traits.found.count >= rank.track_depth
+    if have_all_traits?
       self.won = true
     else
       self.won = false
@@ -99,6 +99,10 @@ class Mission < ActiveRecord::Base
 
   def set_mission_hours
     self.hours = 72
+  end
+
+  def have_all_traits?
+    suspect.traits.found.count >= rank.track_depth
   end
 
   def collapse

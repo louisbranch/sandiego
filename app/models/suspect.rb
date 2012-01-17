@@ -37,6 +37,7 @@ class Suspect < ActiveRecord::Base
   def parse_raw_info
     self.facebook_id = raw_info['id']
     self.name = raw_info['name']
+    self.gender = raw_info['gender']
   end
 
   def create_suspect_traits

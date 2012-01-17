@@ -5,4 +5,8 @@ class City < ActiveRecord::Base
 
   default_scope :order => 'name DESC'
 
+  def full_name
+    "#{name} / #{country}"
+  end
+
 end

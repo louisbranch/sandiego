@@ -1,0 +1,7 @@
+- if mission.won?
+  %h3= "#{mission.suspect.name} foi preso!"
+- else
+  - if mission.progress.elapsed?
+    %h3= "#{mission.suspect.name} não foi preso, você não conseguiu capturá-lo a tempo!"
+  - else
+    %h3= "#{mission.suspect.name} não foi preso, você conseguiu capturá-lo, mas não coletou pistas suficientes sobre ele!"

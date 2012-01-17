@@ -16,7 +16,11 @@
       - unless @mission.new_mission?
         = "Tempo restante: #{@mission.progress.remaining_hours} horas."
   %div.mission_status= @mission.status
-  - unless @mission.finished?
+- if @mission.finished?
+  %div.mission_result
+    = render 'result', :mission => @mission
+- else
+  %div.mission_start
     - if @mission.new_mission?
       = link_to 'Iniciar Missão >>', mission_track_path(@mission, @mission.first_track), :class => 'button'
     - else
