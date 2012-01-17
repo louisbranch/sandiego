@@ -12,7 +12,7 @@ class Trait < ActiveRecord::Base
   def gender
     gender = suspect.raw_info['gender']
     if gender
-      self.category = 'gender'
+      self.category = 'Sexo'
       case gender
         when 'male'
           gender_type = 'masculino'
@@ -29,7 +29,7 @@ class Trait < ActiveRecord::Base
     year_regex = /\d\d\/\d\d\/\d\d\d\d/
     if birthday && birthday.match(year_regex)
       years = Time.now.year - birthday.match(/\d\d\d\d/)[0].to_i
-      self.category = 'birthday'
+      self.category = 'Idade'
       self.description = "Ele parecia ter #{years} anos"
       self.save
     end
@@ -40,7 +40,7 @@ class Trait < ActiveRecord::Base
     if hometown
       hometown = hometown['name']
       unless hometown.nil?
-        self.category = 'hometown'
+        self.category = 'Cidade natal'
         self.description = "Ele revelou ser de #{hometown}"
         self.save
       end
@@ -51,7 +51,7 @@ class Trait < ActiveRecord::Base
     current_city = suspect.raw_info['location']
     if current_city
       current_city = current_city['name']
-      self.category = 'hometown'
+      self.category = 'Cidade atual'
       self.description = "Ele disse que mora em #{current_city}"
       self.save
     end
@@ -62,7 +62,7 @@ class Trait < ActiveRecord::Base
     if education
       education = education.sample
       school = education['school']['name']
-      self.category = 'education'
+      self.category = 'Educação'
       self.description = "Ele mencionou algo sobre ter estudado em #{school}"
       self.save
     end
@@ -73,7 +73,7 @@ class Trait < ActiveRecord::Base
     if work
       work = work.sample
       employer = work['employer']['name']
-      self.category = 'work'
+      self.category = 'Trabalho'
       self.description = "Ele trabalhou para #{employer}"
       self.save
     end
@@ -84,7 +84,7 @@ class Trait < ActiveRecord::Base
     if languages
       language = languages.sample
       language = language['name']
-      self.category = 'language'
+      self.category = 'Idioma'
       self.description = "Eu ouvi ele falando em #{language}"
       self.save
     end
@@ -113,7 +113,7 @@ class Trait < ActiveRecord::Base
         when 'Divorced'
           status = 'ser divorciado'
       end
-      self.category = 'relationship_status'
+      self.category = 'Estado civil'
       self.description = "Ele disse #{status}"
       self.save
     end

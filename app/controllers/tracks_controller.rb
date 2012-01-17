@@ -11,7 +11,7 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find(params[:id])
-    @networks = @mission.current_track.networks
+    @networks = @track.networks
     update_progress_city
   end
 
