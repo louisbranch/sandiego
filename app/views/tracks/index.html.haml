@@ -1,8 +1,9 @@
 %h4 Cidades
-%ul
+%ul#cities_list
   - @tracks.includes(:city).order('cities.name').each do |track|
     - unless track.city == @city
       %li
         = link_to mission_track_path(@mission, track) do
-          = track.city.name
           = image_tag(track.city.photo_path)
+          %div
+            %span= "#{track.city.name} - #{track.city.country}"

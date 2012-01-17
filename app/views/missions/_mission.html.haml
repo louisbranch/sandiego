@@ -4,7 +4,7 @@
   %div.mission_suspect
     = link_to mission_path(mission) do
       =image_tag(mission.suspect.photo_url, :class => 'suspect_photo')
-      %strong Suspeito
+      %strong= mission.suspect.alias
   %div.mission_details
     %div.mission_rank
       = link_to ranks_path do
