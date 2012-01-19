@@ -68,7 +68,7 @@ class Trait < ActiveRecord::Base
       education = education.sample
       school = education['school']['name']
       trait.category = 'Educação'
-      trait.description = "Ele mencionou algo sobre ter estudado em #{school}"
+      trait.description = "Ele mencionou ter estudado em #{school}"
       trait.save
     end
   end
@@ -97,7 +97,6 @@ class Trait < ActiveRecord::Base
   end
 
   def self.relationship_status(suspect)
-    trait = Trait.new(:suspect_id => suspect['id'])
     relationship_status = suspect['raw_info']['relationship_status']
     if relationship_status
       trait = Trait.new(:suspect_id => suspect['id'])
@@ -127,13 +126,81 @@ class Trait < ActiveRecord::Base
     end
   end
 
+  def self.sport(suspect)
+    sports = suspect['raw_info']['sports']
+    if sports
+      trait = Trait.new(:suspect_id => suspect['id'])
+      sport = sports.sample['name']
+      trait.category = 'Esporte'
+      trait.description = "Ele pratica #{sport}"
+      trait.save
+    end
+  end
+
+  def self.favorite_team(suspect)
+    teams = suspect['raw_info']['favorite_teams']
+    if teams
+      trait = Trait.new(:suspect_id => suspect['id'])
+      team = teams.sample['name']
+      trait.category = 'Time Favorito'
+      trait.description = "Ele torce para #{team}"
+      trait.save
+    end
+  end
+
+  def self.favorite_athlete(suspect)
+    athletes = suspect['raw_info']['favorite_athletes']
+    if athletes
+      trait = Trait.new(:suspect_id => suspect['id'])
+      athlete = athletes.sample['name']
+      trait.category = 'Atleta Favorito'
+      trait.description = "Ele considera #{athlete} seu atleta favorito"
+      trait.save
+    end
+  end
+
+  def self.significant_other(suspect)
+    significant_other = suspect['raw_info']['significant_other']
+    if significant_other
+      trait = Trait.new(:suspect_id => suspect['id'])
+      person = significant_other['name']
+      trait.category = 'Em um relacionamento com'
+      trait.description = "Ele está em um relacionamento com #{person}"
+      trait.save
+    end
+  end
+
+  def self.inspirational_people(suspect)
+    inspirational_people = suspect['raw_info']['inspirational_people']
+    if inspirational_people
+      trait = Trait.new(:suspect_id => suspect['id'])
+      person = inspirational_people.sample['name']
+      trait.category = 'Pessoa que lhe inspira'
+      trait.description = "#{person} o inspira"
+      trait.save
+    end
+  end
+
+  def self.bio(suspect)
+    bio = suspect['raw_info']['bio']
+    if bio
+      trait = Trait.new(:suspect_id => suspect['id'])
+      trait.category = 'Sobre'
+      trait.description = "Ele deixou cair isso: #{bio}"
+      trait.save
+    end
+  end
+
+  def self.quotes(suspect)
+    quotes = suspect['raw_info']['quotes']
+    if quotes
+      trait = Trait.new(:suspect_id => suspect['id'])
+      trait.category = 'Frase'
+      trait.description = "Ele deixou cair isso: #{quotes}"
+      trait.save
+    end
+  end
+
   #List of objects: https://developers.facebook.com/docs/reference/api/user/
-  #Sports
-  #Favorite Team
-  #favorite_athletes
-  #significant_other
-  #inspirational_people
-  #bio
-  #Quotes
 
 end

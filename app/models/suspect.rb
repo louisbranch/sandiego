@@ -1,5 +1,5 @@
 class Suspect < ActiveRecord::Base
-  before_save :create_mission_suspect
+  #before_save :create_mission_suspect
   after_create :create_suspect_traits
 
   belongs_to :mission
@@ -49,6 +49,11 @@ class Suspect < ActiveRecord::Base
     Trait.work(self)
     Trait.language(self)
     Trait.relationship_status(self)
+    Trait.sport(self)
+    Trait.favorite_team(self)
+    Trait.significant_other(self)
+    Trait.bio(self)
+    Trait.quotes(self)
   end
 
 end
