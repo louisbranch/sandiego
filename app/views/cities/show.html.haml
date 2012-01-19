@@ -1,7 +1,9 @@
-%h2= @city.name
-%h3= @city.country
-%ul
+%h2= link_to 'Cities', cities_path
+%h3= @city.full_name
+%ol
   - @clues.each do |clue|
-    = clue.description
-    = link_to 'Delete', city_clue_path(@city,clue), :method => :delete, :confirm => 'Are you sure?'
-= link_to 'New Clue', new_city_clue_path(@city)
+    %li
+      = clue.description
+      = link_to 'Edit', edit_city_clue_path(@city,clue)
+      = link_to 'Delete', city_clue_path(@city,clue), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'New Clue', new_city_clue_path(@city), :class => 'button'

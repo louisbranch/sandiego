@@ -1,7 +1,5 @@
 %h2 Cities
-%ul
+%ol
   - @cities.each do |city|
-    %li
-      = link_to city.name, city_path(city)
-      = city.country
-= link_to 'New City', new_city_path
+    %li= link_to city.full_name, city_path(city)
+= link_to 'New City', new_city_path, :class => 'button'

@@ -6,16 +6,15 @@ module MissionTracker
     @traits = suspect.traits.map(&:id)
     @correct_fillers = Filler.correct_ones.map(&:id)
     @wrong_fillers = Filler.wrong_ones.map(&:id)
-    create_first_track(city)
-    min_level = 1
-    max_level = rank.track_depth
-    while min_level <= max_level
-      create_correct_track(city, min_level)
+    level = rank.track_depth
+    while level > 0
+      create_correct_track(city, level)
       rank.track_breadth.times do
-        create_wrong_track(city, min_level)
+        create_wrong_track(city, level)
       end
-      min_level += 1
+      level -= 1
     end
+    create_first_track(city)
   end
 
   private
@@ -49,9 +48,11 @@ module MissionTracker
     if level == rank.track_depth # Last track
       track = self.tracks.create(:city_id => city, :level => level, :correct => true, :final => true)
       create_network_final_information(track)
+      @correct_city = city
     else
       track = self.tracks.create(:city_id => city, :level => level, :correct => true, :final => false)
       create_network_information(track, city)
+      @correct_city = city
     end
   end
 
@@ -62,7 +63,7 @@ module MissionTracker
 
   def create_network_information(track, city)
     create_suspect_information(track)
-    clues = Clue.where(:city_id => city).map(&:id)
+    clues = Clue.where(:city_id => @correct_city).map(&:id)
     2.times do
       clue = clues.slice!(rand(clues.length - 1))
       create_city_information(track, clue)

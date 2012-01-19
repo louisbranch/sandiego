@@ -1,5 +1,5 @@
 = form_for [city, clue] do |f|
   %div
     =f.label :description
-    =f.text_area :description
-  =f.submit
+    =f.text_area :description, :autofocus => true
+  =f.submit :class => 'button'
