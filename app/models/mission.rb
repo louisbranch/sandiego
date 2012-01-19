@@ -1,11 +1,10 @@
 #encoding: UTF-8
 class Mission < ActiveRecord::Base
-  include MissionFormater
   include MissionTracker
 
   before_create :set_mission_rank
   before_create :set_mission_hours
-  before_create :create_mission_info
+  before_create :set_mission_headline
   after_create :create_mission_suspect
   after_create :create_mission_tracks
   after_create :create_mission_progress
@@ -13,6 +12,7 @@ class Mission < ActiveRecord::Base
   validates :user, :presence => true
 
   belongs_to :user
+  belongs_to :headline
   belongs_to :rank
   has_many :tracks, :dependent => :destroy
   has_many :cities, :through => :tracks
@@ -76,12 +76,9 @@ class Mission < ActiveRecord::Base
 
   private
 
-  def create_mission_suspect
-    self.create_suspect
-  end
-
-  def create_mission_progress
-    self.create_progress
+  def set_mission_headline
+    headline_id = Headline.all.map(&:id).sample
+    self.headline_id = headline_id
   end
 
   def set_mission_rank
@@ -90,6 +87,14 @@ class Mission < ActiveRecord::Base
 
   def set_mission_hours
     self.hours = 72
+  end
+
+  def create_mission_suspect
+    self.create_suspect
+  end
+
+  def create_mission_progress
+    self.create_progress
   end
 
   def have_all_traits?

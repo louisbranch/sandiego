@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114210851) do
+ActiveRecord::Schema.define(:version => 20120119141552) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "headlines", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "photo_path"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.string   "photo_path"
@@ -47,18 +55,18 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
   end
 
   create_table "missions", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "headline_id"
+    t.integer  "rank_id"
     t.integer  "hours"
     t.integer  "xp"
-    t.integer  "user_id"
-    t.integer  "rank_id"
     t.boolean  "finished"
     t.boolean  "won"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "missions", ["headline_id"], :name => "index_missions_on_headline_id"
   add_index "missions", ["rank_id"], :name => "index_missions_on_rank_id"
   add_index "missions", ["user_id"], :name => "index_missions_on_user_id"
 

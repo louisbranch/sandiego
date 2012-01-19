@@ -2,8 +2,6 @@ class User < ActiveRecord::Base
   has_many :missions, :dependent => :destroy
   belongs_to :rank
 
-  attr_accessor :new_rank
-
   validates :facebook_id, :presence => true
   validates :oauth_token, :presence => true
   validates :first_name, :presence => true
@@ -70,10 +68,6 @@ class User < ActiveRecord::Base
     next_rank.minimum_xp - xp
   end
 
-  def has_new_rank?
-    new_rank
-  end
-
   private
 
   def self.create_facebook_user(oauth_token)
@@ -92,7 +86,6 @@ class User < ActiveRecord::Base
   def update_rank
     if xp >= next_rank.minimum_xp
       self.rank = next_rank
-      self.new_rank = true
     end
   end
 end

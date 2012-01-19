@@ -17,6 +17,7 @@ class NetworksController < ApplicationController
   def load_resources
     @mission = Mission.find(params[:mission_id])
     @progress = @mission.progress
+    @headline = @mission.headline
   end
 
   def update_progress_location

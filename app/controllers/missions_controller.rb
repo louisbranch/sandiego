@@ -13,6 +13,7 @@ class MissionsController < ApplicationController
   def show
     @user = current_user
     @mission = Mission.find(params[:id])
+    @headline = @mission.headline
   end
 
 end
