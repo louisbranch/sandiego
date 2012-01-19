@@ -16,6 +16,7 @@ class Mission < ActiveRecord::Base
   belongs_to :rank
   has_many :tracks, :dependent => :destroy
   has_many :cities, :through => :tracks
+  has_many :networks, :through => :tracks
   has_one :suspect, :dependent => :destroy
   has_one :progress, :dependent => :destroy
 
@@ -46,18 +47,12 @@ class Mission < ActiveRecord::Base
 
   def finish
     self.finished = true
-    if have_all_traits?
+    if have_all_traits? && !progress.elapsed?
       self.won = true
+      calculate_xp
     else
       self.won = false
     end
-    self.save
-    collapse
-  end
-
-  def overtime
-    self.finished = true
-    self.won = false
     self.save
     collapse
   end
@@ -76,11 +71,7 @@ class Mission < ActiveRecord::Base
   end
 
   def new_mission?
-    if !finished? && hours == progress.remaining_hours
-      true
-    else
-      false
-    end
+    !finished? && hours == progress.remaining_hours
   end
 
   private
@@ -107,6 +98,12 @@ class Mission < ActiveRecord::Base
 
   def collapse
     tracks.destroy_all
+  end
+
+  def calculate_xp
+    value = progress.remaining_hours * rank.bonus_multiplier
+    self.xp = value
+    user.increase_xp(value)
   end
 
 end

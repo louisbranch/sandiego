@@ -9,90 +9,98 @@ class Trait < ActiveRecord::Base
 
   scope :found, :conditions => { :found => true }
 
-  def gender
-    gender = suspect.raw_info['gender']
+  def self.gender(suspect)
+    gender = suspect['raw_info']['gender']
     if gender
-      self.category = 'Sexo'
+      trait = Trait.new(:suspect_id => suspect['id'])
+      trait.category = 'Sexo'
       case gender
         when 'male'
           gender_type = 'masculino'
         when 'female'
           gender_type = 'feminino'
       end
-      self.description = "O Suspeito era do sexo #{gender_type}"
-      self.save
+      trait.description = "O Suspeito era do sexo #{gender_type}"
+      trait.save
     end
   end
 
-  def birthday
-    birthday = suspect.raw_info['birthday']
+  def self.birthday(suspect)
+    birthday = suspect['raw_info']['birthday']
     year_regex = /\d\d\/\d\d\/\d\d\d\d/
     if birthday && birthday.match(year_regex)
+      trait = Trait.new(:suspect_id => suspect['id'])
       years = Time.now.year - birthday.match(/\d\d\d\d/)[0].to_i
-      self.category = 'Idade'
-      self.description = "Ele parecia ter #{years} anos"
-      self.save
+      trait.category = 'Idade'
+      trait.description = "Ele parecia ter #{years} anos"
+      trait.save
     end
   end
 
-  def hometown
-    hometown = suspect.raw_info['hometown']
+  def self.hometown(suspect)
+    hometown = suspect['raw_info']['hometown']
     if hometown
       hometown = hometown['name']
       unless hometown.nil?
-        self.category = 'Cidade natal'
-        self.description = "Ele revelou ser de #{hometown}"
-        self.save
+        trait = Trait.new(:suspect_id => suspect['id'])
+        trait.category = 'Cidade natal'
+        trait.description = "Ele revelou ser de #{hometown}"
+        trait.save
       end
     end
   end
 
-  def current_city
-    current_city = suspect.raw_info['location']
+  def self.current_city(suspect)
+    current_city = suspect['raw_info']['location']
     if current_city
+      trait = Trait.new(:suspect_id => suspect['id'])
       current_city = current_city['name']
-      self.category = 'Cidade atual'
-      self.description = "Ele disse que mora em #{current_city}"
-      self.save
+      trait.category = 'Cidade atual'
+      trait.description = "Ele disse que mora em #{current_city}"
+      trait.save
     end
   end
 
-  def education
-    education = suspect.raw_info['education']
+  def self.education(suspect)
+    education = suspect['raw_info']['education']
     if education
+      trait = Trait.new(:suspect_id => suspect['id'])
       education = education.sample
       school = education['school']['name']
-      self.category = 'Educação'
-      self.description = "Ele mencionou algo sobre ter estudado em #{school}"
-      self.save
+      trait.category = 'Educação'
+      trait.description = "Ele mencionou algo sobre ter estudado em #{school}"
+      trait.save
     end
   end
 
-  def work
-    work = suspect.raw_info['work']
+  def self.work(suspect)
+    work = suspect['raw_info']['work']
     if work
+      trait = Trait.new(:suspect_id => suspect['id'])
       work = work.sample
       employer = work['employer']['name']
-      self.category = 'Trabalho'
-      self.description = "Ele trabalhou para #{employer}"
-      self.save
+      trait.category = 'Trabalho'
+      trait.description = "Ele trabalhou para #{employer}"
+      trait.save
     end
   end
 
-  def language
-    languages = suspect.raw_info['languages']
+  def self.language(suspect)
+    languages = suspect['raw_info']['languages']
     if languages
-      language = languages.sample
-      language = language['name']
-      self.category = 'Idioma'
-      self.description = "Eu ouvi ele falando em #{language}"
-      self.save
+      trait = Trait.new(:suspect_id => suspect['id'])
+      language = languages.sample['name']
+      trait.category = 'Idioma'
+      trait.description = "Eu ouvi ele falando em #{language}"
+      trait.save
     end
   end
 
-  def relationship_status
-    relationship_status = suspect.raw_info['relationship_status']
+  def self.relationship_status(suspect)
+    trait = Trait.new(:suspect_id => suspect['id'])
+    relationship_status = suspect['raw_info']['relationship_status']
     if relationship_status
+      trait = Trait.new(:suspect_id => suspect['id'])
       case relationship_status
         when 'Single'
           status = 'ser solteiro'
@@ -113,9 +121,9 @@ class Trait < ActiveRecord::Base
         when 'Divorced'
           status = 'ser divorciado'
       end
-      self.category = 'Estado civil'
-      self.description = "Ele disse #{status}"
-      self.save
+      trait.category = 'Estado civil'
+      trait.description = "Ele disse #{status}"
+      trait.save
     end
   end
 
@@ -124,6 +132,7 @@ class Trait < ActiveRecord::Base
   #Favorite Team
   #favorite_athletes
   #significant_other
+  #inspirational_people
   #bio
   #Quotes
 

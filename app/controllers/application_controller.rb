@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Progress::OverTime do
     mission = Mission.find(params[:mission_id])
-    redirect_to mission_path(mission), :alert => 'Seu tempo acabou! :('
+    redirect_to mission_path(mission)
   end
 
   def current_user

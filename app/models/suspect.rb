@@ -41,14 +41,14 @@ class Suspect < ActiveRecord::Base
   end
 
   def create_suspect_traits
-    traits.new.gender
-    traits.new.birthday
-    traits.new.hometown
-    traits.new.current_city
-    traits.new.education
-    traits.new.work
-    traits.new.language
-    traits.new.relationship_status
+    Trait.gender(self)
+    Trait.birthday(self)
+    Trait.hometown(self)
+    Trait.current_city(self)
+    Trait.education(self)
+    Trait.work(self)
+    Trait.language(self)
+    Trait.relationship_status(self)
   end
 
 end

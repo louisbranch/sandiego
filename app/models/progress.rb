@@ -38,7 +38,7 @@ class Progress < ActiveRecord::Base
     self.remaining_hours -= hours
     self.save
     if elapsed?
-      mission.overtime
+      mission.finish
       raise OverTime
     end
   end

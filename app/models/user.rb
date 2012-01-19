@@ -52,6 +52,12 @@ class User < ActiveRecord::Base
     user
   end
 
+  def increase_xp(value)
+    self.xp ||= 0
+    self.xp += value
+    self.save
+  end
+
   private
 
   def self.create_facebook_user(oauth_token)

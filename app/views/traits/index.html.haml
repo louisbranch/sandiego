@@ -1,9 +1,9 @@
 %h4 Pistas Coletadas
 - if @traits.any?
-  %ul
+  %ul#traits_list
     -@traits.each do |trait|
       %li
-        = trait.category.capitalize
+        %strong= "#{trait.category.capitalize}: "
         = trait.description
 - else
   %p Você ainda não encontrou pistas sobre o suspeito.

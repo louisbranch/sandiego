@@ -4,6 +4,7 @@ class CreateMissions < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :hours
+      t.integer :xp
       t.references :user
       t.references :rank
       t.boolean :finished

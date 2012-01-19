@@ -11,6 +11,7 @@ class MissionsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @mission = Mission.find(params[:id])
   end
 

@@ -15,10 +15,10 @@
       = "Você precisa concluir essa missão em até #{@mission.hours} horas."
       - unless @mission.new_mission?
         = "Tempo restante: #{@mission.progress.remaining_hours} horas."
-  %div.mission_status= @mission.status
+    %div.mission_status= @mission.status
 - if @mission.finished?
   %div.mission_result
-    = render 'result', :mission => @mission
+    = render 'result', :mission => @mission, :user => @user
 - else
   %div.mission_start
     - if @mission.new_mission?

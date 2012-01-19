@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20120114210851) do
     t.string   "name"
     t.text     "description"
     t.integer  "hours"
+    t.integer  "xp"
     t.integer  "user_id"
     t.integer  "rank_id"
     t.boolean  "finished"
