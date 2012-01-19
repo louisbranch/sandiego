@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :missions, :dependent => :destroy
   belongs_to :rank
 
+  attr_accessor :new_rank
+
   validates :facebook_id, :presence => true
   validates :oauth_token, :presence => true
   validates :first_name, :presence => true
@@ -37,7 +39,7 @@ class User < ActiveRecord::Base
         valid_random_friend(f)
       end
     else
-      raise 'A valid friend coun\'t be found.'
+      raise 'A valid friend couldn\'t be found.'
     end
   end
 
@@ -55,7 +57,21 @@ class User < ActiveRecord::Base
   def increase_xp(value)
     self.xp ||= 0
     self.xp += value
+    update_rank
     self.save
+  end
+
+  def next_rank
+    next_rank = rank.position + 1
+    Rank.find_by_position(next_rank)
+  end
+
+  def xp_for_next_rank
+    next_rank.minimum_xp - xp
+  end
+
+  def has_new_rank?
+    new_rank
   end
 
   private
@@ -73,4 +89,10 @@ class User < ActiveRecord::Base
     )
   end
 
+  def update_rank
+    if xp >= next_rank.minimum_xp
+      self.rank = next_rank
+      self.new_rank = true
+    end
+  end
 end

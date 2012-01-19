@@ -1,13 +1,17 @@
 - if mission.won?
   %h3= "#{mission.suspect.name} foi preso!"
   %div.mission_xp
+    - if user.has_new_rank?
+      %div
+        %strong Você subiu de Rank!
+        = user.rank.name
     %div
       %strong Pontos Ganhos:
       = mission.xp
     %div
       %strong Total de Pontos:
       = user.xp
-    %div Faltam xx pontos para você passar para o Ranking xxx
+    %div= "Faltam #{user.xp_for_next_rank} pontos para você passar para o Ranking #{user.next_rank.name}"
 - else
   - if mission.progress.elapsed?
     %h3= "#{mission.suspect.name} não foi preso, você não conseguiu capturá-lo a tempo!"
