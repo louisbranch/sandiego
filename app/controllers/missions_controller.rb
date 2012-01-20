@@ -14,6 +14,7 @@ class MissionsController < ApplicationController
     @user = current_user
     @mission = Mission.find(params[:id])
     @headline = @mission.headline
+    @messages = @mission.messages
   end
 
 end

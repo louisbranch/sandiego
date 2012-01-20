@@ -6,6 +6,7 @@ Sandiego::Application.routes.draw do
     resources :tracks, :only => [:index, :show], :path => '/cidades'
     resources :networks, :only => :show, :path => '/locais'
     resources :traits, :only => :index, :path => '/pistas'
+    resources :messages, :only => [:new, :create]
   end
 
   resources :rules, :only => :index

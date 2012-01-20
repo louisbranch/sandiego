@@ -1,7 +1,15 @@
-%h2 Ranking
+%h2 Ranks
 %table
+  %thead
+    %tr
+      %th Nome
+      %th Patente
+      %th Pontos
   %tbody
     - @ranks.each do |rank|
       %tr
         %td= rank.name
         %td= rank.stars
+        %td= rank.minimum_xp
+
+%h3 Ranking de Jogadores

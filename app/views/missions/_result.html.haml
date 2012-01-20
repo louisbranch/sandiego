@@ -15,3 +15,8 @@
       %h3= "#{mission.suspect.name} não foi preso, você não conseguiu capturá-lo a tempo!"
     - else
       %h3= "#{mission.suspect.name} não foi preso, você conseguiu capturá-lo, mas não coletou pistas suficientes sobre ele!"
+- unless @messages.any?
+  %div.share
+    :markdown
+      ###Compartilhe esse resultado para seus amigos e ganhe mais *50 pontos*
+    =link_to 'Compartilhar', mission_messages_path(mission), :method => :post, :class => 'button'

@@ -29,7 +29,6 @@ class NetworksController < ApplicationController
   def mark_trait_as_found
     if @network.trait?
       @network.trait_found
-      flash.now[:notice] = 'Pista do suspeito encontrada!'
     end
   end
 

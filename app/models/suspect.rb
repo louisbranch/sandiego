@@ -1,5 +1,5 @@
 class Suspect < ActiveRecord::Base
-  #before_save :create_mission_suspect
+  before_save :create_mission_suspect
   after_create :create_suspect_traits
 
   belongs_to :mission

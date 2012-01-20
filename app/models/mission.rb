@@ -19,6 +19,7 @@ class Mission < ActiveRecord::Base
   has_many :networks, :through => :tracks
   has_one :suspect, :dependent => :destroy
   has_one :progress, :dependent => :destroy
+  has_many :messages
 
   def first_track
     tracks.where(:level => 0).first

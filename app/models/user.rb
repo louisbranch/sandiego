@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :missions, :dependent => :destroy
+  has_many :messages
   belongs_to :rank
 
   validates :facebook_id, :presence => true
@@ -49,7 +50,10 @@ class User < ActiveRecord::Base
     unless user
       user = create_facebook_user(signed_request['oauth_token'])
     end
-    user.oauth_token = signed_request['oauth_token'] # Refactor, is it still necessary?
+    unless user.oauth_token == signed_request['oauth_token']
+      user.oauth_token = signed_request['oauth_token']
+      user.save
+    end
     user
   end
 

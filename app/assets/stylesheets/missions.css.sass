@@ -57,32 +57,34 @@ body.missions#index
 body.missions#show
   h2
     margin: 20px 0
-  img.mission_photo
-    padding: 5px
-    background-color: #fff
-    box-shadow: 2px 2px 2px #666
-    margin-top: 20px
-    margin-right: 10px
-    float: left
-  div.mission_hours
-    margin: 10px 0
-  div.mission_suspect
-    float: right
-    text-align: center
-    padding: 5px
-    background-color: #fff
-    box-shadow: 2px 2px 2px #666
-    strong
-      display: block
-      margin: 10px 0 5px
+  div.mission_info
+    position: relative
+    overflow: hidden
+    img.mission_photo
+      padding: 5px
+      background-color: #fff
+      box-shadow: 2px 2px 2px #666
+      margin-top: 20px
+      margin-right: 10px
+      float: left
+    div.mission_hours
+      margin: 10px 0
+    div.mission_suspect
+      float: right
+      text-align: center
+      padding: 5px
+      background-color: #fff
+      box-shadow: 2px 2px 2px #666
+      strong
+        display: block
+        margin: 10px 0 5px
   div.mission_start
     clear: both
     text-align: center
   div.mission_result
+    clear: both
     padding: 10px
-    position: relative
-    overflow: hidden
-    margin: 0 10px
+    margin: 30px 0
     &#won
       background-color: #E3EBC6
       border: 1px solid #C2D288
@@ -93,9 +95,12 @@ body.missions#show
       border-left: 10px solid #F3AEB1
     h3
       font-size: 20px
-  div.mission_xp
-    div
-      margin: 10px 0
+    div.mission_xp
+      div
+        margin: 10px 0
+  div.share
+    h3
+      font-size: 18px
 
 header#mission_header
   position: relative
