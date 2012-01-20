@@ -23,8 +23,9 @@ class User < ActiveRecord::Base
     graph.get_object(id)
   end
 
-  def random_friend
-    friend(friends.sample['id'])
+  def checkins
+    graph = Koala::Facebook::API.new(oauth_token)
+    graph.get_connections('me','checkins')
   end
 
   def valid_random_friend(f = nil)
