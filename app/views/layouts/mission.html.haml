@@ -16,9 +16,7 @@
         =link_to 'Sobre', about_path
     %header#mission_header
       %h2="Caso: #{@headline.name}"
-      %div.mission_time
-        %strong Tempo Restante:
-        = "#{@progress.remaining_hours} horas"
+      %div.mission_time= "Faltam #{@progress.remaining_hours} horas"
       - if @track
         %h3= link_to_unless_current @track.city.full_name, mission_track_path(@mission, @track)
     = render :partial => 'shared/flash_messages'

@@ -1,3 +1,5 @@
 %h2 Casos
 %ul#missions_list
+  - unless @missions.ongoing?
+    = link_to 'Requisitar novo Caso', missions_path, :method => :post, :class => 'button'
   = render @missions

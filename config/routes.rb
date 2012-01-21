@@ -2,7 +2,7 @@ Sandiego::Application.routes.draw do
 
   resource :canvas, :only => [:show, :new, :create]
 
-  resources :missions, :only => [:index, :show], :path => '/casos' do
+  resources :missions, :only => [:index, :show, :create], :path => '/casos' do
     resources :tracks, :only => [:index, :show], :path => '/cidades'
     resources :networks, :only => :show, :path => '/locais'
     resources :traits, :only => :index, :path => '/pistas'

@@ -17,4 +17,9 @@ class MissionsController < ApplicationController
     @messages = @mission.messages
   end
 
+  def create
+    mission = current_user.missions.create
+    redirect_to mission_path(mission)
+  end
+
 end

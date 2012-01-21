@@ -21,6 +21,12 @@ class Mission < ActiveRecord::Base
   has_one :progress, :dependent => :destroy
   has_many :messages
 
+  default_scope :order => 'created_at DESC'
+
+  def self.ongoing?
+    where(:finished => nil).any?
+  end
+
   def first_track
     tracks.where(:level => 0).first
   end
