@@ -6,4 +6,4 @@ $("<div id=dialog></div>").dialog
   width: 600,
   position: ['center', 200]
   open: ->
-    $("div#dialog").html("<%= escape_javascript(render('traits', :traits => @traits)) %>")
+    $("div#dialog").html("<%= escape_javascript(render('traits', :traits => @traits, :traits_found => @traits_found)) %>")

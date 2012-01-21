@@ -2,3 +2,5 @@
   = image_tag(network.location.witness_photo_path)
   %div#witness_info= network.informable.description
   %div#witness_name= network.location.witness
+- if traits_found
+  %div#traits_found{'data-growl' => traits_found, 'data-growl-icon' => image_path("magnifying-glass.png")}= traits_found

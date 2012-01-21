@@ -81,6 +81,14 @@ class Mission < ActiveRecord::Base
     !finished? && hours == progress.remaining_hours
   end
 
+  def traits_found
+    if have_all_traits?
+      "Você encontrou todas as pistas do suspeito. Agora você já tem um mandanto de prisão!"
+    else
+      "#{suspect.traits.found.count} de #{rank.track_depth} pistas encontradas sobre o suspeito!"
+    end
+  end
+
   private
 
   def set_mission_headline

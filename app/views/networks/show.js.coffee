@@ -6,5 +6,7 @@ $("<div id=dialog></div>").dialog
   width: 600,
   position: ['center', 200]
   open: ->
-    $("div#dialog").html("<%= escape_javascript(render('network', :network => @network)) %>")
+    $("div#dialog").html("<%= escape_javascript(render('network', :network => @network, :traits_found => @traits_found)) %>")
 $('div.mission_time').html('<%= "Faltam #{@progress.remaining_hours} horas" %>')
+$('div#traits_found').hide()
+window.growl()

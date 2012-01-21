@@ -29,6 +29,7 @@ class NetworksController < ApplicationController
   def mark_trait_as_found
     if @network.trait?
       @network.trait_found
+      @traits_found = @mission.traits_found
     end
   end
 
