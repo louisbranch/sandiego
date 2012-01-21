@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :create_body_identifiers
@@ -12,8 +13,16 @@ class ApplicationController < ActionController::Base
     redirect_to mission_path(mission)
   end
 
+  rescue_from User::Invalid do
+    redirect_to canvas_path
+  end
+
   def current_user
-    User.find(session[:user_id])
+    begin
+      User.find(session[:user_id])
+    rescue
+      raise User::Invalid
+    end
   end
 
   def create_body_identifiers

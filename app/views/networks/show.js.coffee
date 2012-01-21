@@ -1,10 +1,10 @@
-if $('div#network').length
-  $('div#network').remove()
-$("<div id=network></div>").dialog
+if $('div#dialog').length
+  $('div#dialog').remove()
+$("<div id=dialog></div>").dialog
   title: ("<%= @network.location.name %>"),
   closeText: 'fechar',
   width: 600,
-  position: ['center']
+  position: ['center', 200]
   open: ->
-    $("div#network").html("<%= escape_javascript(render('network', :network => @network)) %>")
+    $("div#dialog").html("<%= escape_javascript(render('network', :network => @network)) %>")
 $('div.mission_time').html('<%= "Faltam #{@progress.remaining_hours} horas" %>')

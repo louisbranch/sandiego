@@ -95,4 +95,8 @@ class User < ActiveRecord::Base
       self.rank = next_rank
     end
   end
+
+  class Invalid < StandardError
+  end
+
 end

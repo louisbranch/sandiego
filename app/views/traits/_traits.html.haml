@@ -1,0 +1,8 @@
+- if traits.any?
+  %ul#traits_list
+    -traits.each do |trait|
+      %li
+        %strong= "#{trait.category.capitalize}: "
+        = trait.description
+- else
+  %p Você ainda não encontrou pistas sobre o suspeito.
