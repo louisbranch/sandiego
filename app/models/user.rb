@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   validates :email, :presence => true
   validates :rank, :presence => true
 
+  default_scope :order => 'xp DESC'
+
   def name
     "#{first_name} #{last_name}"
   end

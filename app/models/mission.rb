@@ -87,7 +87,13 @@ class Mission < ActiveRecord::Base
   end
 
   def set_mission_hours
-    self.hours = 72
+    depth = rank.track_depth
+    first_city = 1
+    cities_time_travel = 10
+    locations = 3
+    location_time_travel = 3
+    bonus_hours = 2
+    self.hours = (depth * cities_time_travel) + ((depth + first_city ) * locations * location_time_travel) * bonus_hours
   end
 
   def create_mission_suspect

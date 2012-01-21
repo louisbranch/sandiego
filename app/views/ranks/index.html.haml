@@ -13,3 +13,19 @@
         %td= rank.minimum_xp
 
 %h3 Ranking de Jogadores
+%table
+  %thead
+    %tr
+      %th
+      %th Nome
+      %th Casos
+      %th Pontos
+      %th Rank
+  %tbody
+    - @users.each_with_index do |user, i|
+      %tr
+        %td= i+1
+        %td= user.name
+        %td= user.missions.count
+        %td= user.xp
+        %td= user.rank.name
