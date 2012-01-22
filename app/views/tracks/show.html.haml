@@ -6,3 +6,5 @@
         = image_tag(network.location.photo_path)
         %div
           %span= network.location.name
+- if @time_traveled
+  %div#time_traveled{'data-growl' => image_path("clock.png")}= "#{@time_traveled} horas de viagem"

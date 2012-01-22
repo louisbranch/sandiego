@@ -10,14 +10,16 @@ class Progress < ActiveRecord::Base
 
   def city_travel(track)
     self.track = track
-    hours = 10
+    hours = rand(4) + 7
     reduce_time(hours)
+    hours
   end
 
   def location_travel(network)
     self.network = network
-    hours = 3
+    hours = rand(4) + 2
     reduce_time(hours)
+    hours
   end
 
   def elapsed?

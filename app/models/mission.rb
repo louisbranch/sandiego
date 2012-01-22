@@ -106,7 +106,7 @@ class Mission < ActiveRecord::Base
     cities_time_travel = 10
     locations = 3
     location_time_travel = 3
-    bonus_hours = 2
+    bonus_hours = 1.5
     self.hours = (depth * cities_time_travel) + ((depth + first_city ) * locations * location_time_travel) * bonus_hours
   end
 

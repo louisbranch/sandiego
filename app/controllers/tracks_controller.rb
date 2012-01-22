@@ -25,7 +25,7 @@ class TracksController < ApplicationController
 
   def update_progress_city
     unless @progress.track == @track
-      @progress.city_travel(@track)
+      @time_traveled = @progress.city_travel(@track)
     end
   end
 

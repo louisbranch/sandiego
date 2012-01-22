@@ -22,7 +22,7 @@ class NetworksController < ApplicationController
 
   def update_progress_location
     unless @progress.network == @network
-      @progress.location_travel(@network)
+      @time_traveled = @progress.location_travel(@network)
     end
   end
 
