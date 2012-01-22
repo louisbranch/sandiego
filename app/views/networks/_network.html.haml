@@ -3,6 +3,6 @@
   %div#witness_info= network.informable.description
   %div#witness_name= network.location.witness
 - if time_traveled
-  %div#time_traveled{'data-growl' => image_path("clock.png")}= "#{time_traveled} horas de viagem"
+  %div#location_time_traveled{'data-growl' => image_path("clock.png")}= "#{time_traveled} horas de viagem"
 - if traits_found
   %div#traits_found{'data-growl' => image_path("magnifying-glass.png")}= traits_found

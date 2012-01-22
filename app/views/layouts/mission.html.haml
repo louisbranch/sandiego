@@ -26,3 +26,5 @@
       = link_to 'Investigar cidade', mission_track_path(@mission, @track), :id => 'mission_locations'
       = link_to 'Mudar de cidade', mission_tracks_path(@mission), :id => 'mission_cities'
       = link_to 'Pistas coletadas', mission_traits_path(@mission), :remote => true, :id => 'mission_traits'
+    %audio{ :preload => 'auto' , :src => asset_path('airplane.mp3'), :id => 'city_travel_sound'}
+    %audio{ :preload => 'auto' , :src => asset_path('door_knock.mp3'), :id => 'location_travel_sound'}
