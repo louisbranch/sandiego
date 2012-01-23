@@ -3,13 +3,15 @@ body.ranks
     border-collapse: collapse
     thead
       tr
-        background-color: #ddd
+        background-color: rgba(0, 0, 0, 0.1)
         th
           text-align: left
           padding: 10px
     tbody tr
+      &:nth-child(even)
+        background-color: rgba(255, 255, 255, 0.5)
       &:nth-child(odd)
-        background-color: #f5f5f5
+        background-color: rgba(255, 255, 255, 0.6)
       td
         padding: 10px
   h3

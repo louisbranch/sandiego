@@ -117,8 +117,24 @@ Headline.create([
     :photo_path => '/assets/headlines/waldo.jpg' },
 
   { :name => 'Senhor Cabeça de Batata é encontrado desmembrado',
-    :description => 'A vítima foi encontrada morta na noite de sexta-feira em sua casa. Os legistas demoraram cerca de 3 horas para coletar todas as evidências. A polícia afirma que a investigação será feita por partes.',
+    :description => 'A vítima foi encontrada morta na noite de sexta-feira em frente a sua casa. Os legistas demoraram cerca de 6 horas para coletar todas as evidências. A polícia afirma que a investigação será feita por partes.',
     :photo_path => '/assets/headlines/potato.jpg' },
+
+  { :name => 'Justin Bieber é sequestrado',
+    :description => 'O ídolo teen foi vítima de um sequestro quando retornava de um show. Através de um vídeo, o sequestrador pediu U$ 100 milhões para libertar o cantor. Enquanto milhares de fãs realizam doações para pagar o resgate, outras milhões de pessoas estão levantando o dobro do dinheiro para que Justin Bieber não seja devolvido.',
+    :photo_path => '/assets/headlines/justin_bieber.jpg' },
+
+  { :name => 'Vírus mortal assola Google Plus',
+    :description => 'Após semanas de ameaças, um terrorista liberou um vírus em uma das menores redes sociais do mundo. Médicos afirmam que o infectado morre cerca de 12 horas após o contato e ainda não há cura. O vírus já matou três usuários do Google Plus, o que reduziu o tamanho da rede pela metade.',
+    :photo_path => '/assets/headlines/google_plus.jpg' },
+
+  { :name => 'Criador do SOPA é assassinado durante discurso',
+    :description => 'Morreu nesta quarta-feira o político americano idealizador do SOPA (Stop Online Piracy Act). Ainda não há pistas sobre o atirador que fugiu do local deixando a arma do crime e um tapa-olho. Enquanto autoridades procuram o suspeito, milhares de usuários comemoram criando remixes e dupsteps do momento do crime.',
+    :photo_path => '/assets/headlines/sopa.jpg' },
+
+  { :name => 'Fotos do protótipo do novo iPhone vazam na Internet',
+    :description => 'Repetindo a cena de alguns anos atrás, um funcionário da Apple teve o protótipo do telefone roubado em um bar. Segundo um blog que recebeu as fotos do ladrão, o novo modelo conta com uma grande melhora no assistente de voz, Siri. Além de responder as perguntas, agora o assistente informa que o usuário está fabuloso e para ele levar um casaquinho porque lá fora está frio.',
+    :photo_path => '/assets/headlines/iphone.jpg' },
 ])
 
 

@@ -1,8 +1,6 @@
 class TracksController < ApplicationController
   before_filter :load_resources
 
-  layout 'mission'
-
   def index
     @city = @mission.current_city
     @tracks = @mission.possible_tracks

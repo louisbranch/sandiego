@@ -1,0 +1,9 @@
+- if @progress
+  %header#mission_header
+    %nav#breadcrumb
+      = link_to 'Casos', missions_path
+      >
+      = link_to @headline.name, mission_path(@mission)
+    %div.mission_time= "Faltam #{@progress.remaining_hours} horas"
+    - if @track
+      %h3= link_to_unless_current @track.city.full_name, mission_track_path(@mission, @track)

@@ -10,9 +10,13 @@
     %header#main
       %h1 Project Sandiego
       %nav
-        =link_to 'Casos', missions_path
-        =link_to 'Ranking', ranks_path
-        =link_to 'Regras', rules_path
-        =link_to 'Sobre', about_path
-    = render :partial => 'shared/flash_messages'
-    = yield
+        =link_to 'Casos', missions_path, is_controller_active?(['missions', 'tracks', 'networks', 'traits'])
+        =link_to 'Ranking', ranks_path, is_controller_active?("ranks")
+        =link_to 'Regras', rules_path, is_controller_active?("rules")
+        =link_to 'Sobre', about_path, is_controller_active?("about")
+    %div#wrapper
+      = render 'shared/mission_header'
+      = render 'shared/flash_messages'
+      = yield
+      = render 'shared/mission_navigation'
+      = render 'shared/mission_audio'

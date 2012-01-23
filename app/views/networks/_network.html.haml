@@ -1,7 +1,8 @@
 %div#network_witness
-  = image_tag(network.location.witness_photo_path)
+  %div
+    = image_tag(network.location.witness_photo_path)
+    %div#witness_name= network.location.witness
   %div#witness_info= network.informable.description
-  %div#witness_name= network.location.witness
 - if time_traveled
   %div#location_time_traveled{'data-growl' => image_path("clock.png")}= "#{time_traveled} horas de viagem"
 - if traits_found

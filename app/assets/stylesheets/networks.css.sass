@@ -1,11 +1,14 @@
 div#network_witness
   background-color: #fff
-  img
+  > div
     float: left
+  img
     height: 120px
     width: 120px
+  div#witness_name
+    text-align: center
   div#witness_info
-    float: left
+    position: relative
     margin-top: 60px
     font-size: 20px
     font-style: italic
@@ -13,6 +16,3 @@ div#network_witness
       content: '\"'
     &:after
       content: '\"'
-  div#witness_name
-    width: 120px
-    margin: 0 0 10px 10px

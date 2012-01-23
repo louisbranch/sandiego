@@ -1,7 +1,5 @@
 class TraitsController < ApplicationController
 
-  layout 'mission'
-
   def index
     @mission = Mission.find(params[:mission_id])
     @headline = @mission.headline

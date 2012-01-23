@@ -2,8 +2,6 @@
 class NetworksController < ApplicationController
   before_filter :load_resources
 
-  layout 'mission'
-
   def show
     @network = Network.find(params[:id])
     @track = @mission.current_track

@@ -1,22 +1,24 @@
 %div.mission_info
-  %div.mission_rank
-    = link_to mission_path(@mission) do
-      %strong Rank:
-      = @mission.rank.name
-      = @mission.rank.stars
   =image_tag(@headline.photo_path, :class => 'mission_photo')
   %div.mission_suspect
     =image_tag(@mission.suspect.photo_url, :class => 'suspect_photo')
     %strong= @mission.suspect.alias
   %div.mission_details
     %h2=@headline.name
+    %div.mission_status= @mission.status
     = simple_format(@headline.description)
+    %div.mission_rank
+      = link_to ranks_path do
+        %strong Rank:
+        = @mission.rank.name
+        = @mission.rank.stars
     - unless @mission.finished?
       %div.mission_hours
-        = "Você precisa concluir essa missão em até #{@mission.hours} horas."
+        :markdown
+          Você precisa concluir essa missão em até **#{@mission.hours} horas.**
         - unless @mission.new_mission?
-          = "Tempo restante: #{@mission.progress.remaining_hours} horas."
-      %div.mission_status= @mission.status
+          :markdown
+            **Tempo restante:** #{@mission.progress.remaining_hours} horas.
 - if @mission.finished?
   = render 'result', :mission => @mission, :user => @user
 - else

@@ -17,7 +17,7 @@ class Progress < ActiveRecord::Base
 
   def location_travel(network)
     self.network = network
-    hours = rand(4) + 2
+    hours = rand(3) + 2
     reduce_time(hours)
     hours
   end
