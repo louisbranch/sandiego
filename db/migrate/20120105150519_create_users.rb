@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :email
       t.references :rank
-      t.integer :xp
+      t.integer :xp, :default => 0
       t.timestamps
     end
     add_index :users, :facebook_id
