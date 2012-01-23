@@ -1,4 +1,5 @@
 class HeadlinesController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @headlines = Headline.all

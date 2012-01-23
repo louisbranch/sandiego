@@ -1,5 +1,6 @@
 #encoding: UTF-8
 class NetworksController < ApplicationController
+  load_and_authorize_resource
   before_filter :load_resources
 
   def show

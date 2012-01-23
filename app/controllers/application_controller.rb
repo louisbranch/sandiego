@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     redirect_to canvas_path
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, :alert => 'Acesso restrito.'
+  end
+
   def current_user
     begin
       User.find(session[:user_id])

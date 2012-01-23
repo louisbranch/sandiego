@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
 
   default_scope :order => 'xp DESC'
 
+  def admin?
+    self == User.find(1)
+  end
+
   def name
     "#{first_name} #{last_name}"
   end

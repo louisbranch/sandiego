@@ -1,4 +1,5 @@
 class MissionsController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @missions = current_user.missions

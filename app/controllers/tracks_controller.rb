@@ -1,4 +1,5 @@
 class TracksController < ApplicationController
+  load_and_authorize_resource
   before_filter :load_resources
 
   def index

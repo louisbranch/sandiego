@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'coffeebeans'
 gem 'koala'
 gem 'rdiscount'
+gem 'cancan'
 
 group :development, :test do
   gem 'sqlite3'

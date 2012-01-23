@@ -1,5 +1,6 @@
 #encoding: UTF-8
 class MessagesController < ApplicationController
+  load_and_authorize_resource
 
   def create
     @mission = Mission.find(params[:mission_id])

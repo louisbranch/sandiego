@@ -1,4 +1,5 @@
 class TraitsController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @mission = Mission.find(params[:mission_id])

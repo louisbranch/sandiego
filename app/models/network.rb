@@ -7,6 +7,10 @@ class Network < ActiveRecord::Base
   validates :location, :presence => true
   validates :informable, :presence => true
 
+  def mission
+    track.mission
+  end
+
   def trait?
     informable_type == 'Trait'
   end
