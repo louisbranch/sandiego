@@ -1,0 +1,14 @@
+%h2 Headlines
+%table
+  %thead
+    %tr
+      %th Name
+      %th Manage
+  %tbody
+    -@headlines.each do |headline|
+      %tr
+        %td= headline.name
+        %td
+          = link_to 'Edit', edit_headline_path(headline)
+          = link_to 'Delete', headline_path(headline), :method => :delete, :confirm => 'Are you sure?'
+=link_to 'Add New Headline', new_headline_path, :class => 'button'

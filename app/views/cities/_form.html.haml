@@ -6,4 +6,7 @@
     =f.label :country
     =f.text_field :country
   %div
+    =f.label :photo_path
+    =f.text_field :photo_path, :value => (city.new_record? ? '/assets/cities/.jpg' : city.photo_path)
+  %div
     =f.submit :class => 'button'

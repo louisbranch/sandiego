@@ -19,6 +19,8 @@ Sandiego::Application.routes.draw do
 
   resources :locations
 
+  resources :headlines
+
   root :to => 'canvas#show'
 
 end
